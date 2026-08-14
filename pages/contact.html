@@ -1,46 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Defines the document as HTML5 and sets the language to English. -->
     <meta charset="UTF-8">
+
+    <!-- Ensures the webpage displays correctly on different screen sizes. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Sets the title displayed on the browser tab. -->
     <title>Contact Us | GreenPath Community Foundation</title>
+
+    <!-- Provides a description of the Contact Us page for search engines. -->
     <meta name="description" content="Get in touch with GreenPath Community Foundation. Find our office locations and send us a message.">
+
+    <!-- Links the webpage to the external CSS stylesheet. -->
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
+    <!-- Header contains the organisation logo and main navigation menu. -->
     <header>
+
+        <!-- The organisation name acts as a link back to the home page. -->
         <div class="logo">
             <a href="../index.html">GreenPath Community Foundation</a>
         </div>
+
+        <!-- Main navigation allows users to move between website pages. -->
         <nav>
             <ul>
+                <!-- Link to the website home page. -->
                 <li><a href="../index.html">Home</a></li>
+
+                <!-- Link to information about the organisation. -->
                 <li><a href="about.html">About Us</a></li>
+
+                <!-- Link to the organisation's environmental programmes. -->
                 <li><a href="services.html">Programmes</a></li>
+
+                <!-- Link to the page for getting involved with the organisation. -->
                 <li><a href="enquiry.html">Get Involved</a></li>
+
+                <!-- Link to the current Contact Us page. -->
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
+
+    <!-- Main section contains the primary content of the Contact Us page. -->
     <main>
 
+        <!-- Page heading introduces the purpose of this webpage. -->
         <section class="page-heading">
             <h1>Contact Us</h1>
         </section>
 
+
         <!-- Contact information for two office locations, as required for an NPO with more than one site -->
         <section class="locations">
+
+            <!-- Displays the heading for the organisation's physical office locations. -->
             <h2>Our Locations</h2>
 
+
+            <!-- Contains contact and map information for the Johannesburg office. -->
             <article class="location">
                 <h3>Johannesburg Office</h3>
+
+                <!-- The address element identifies the physical location and contact details. -->
                 <address>
                     12 Botanical Way, Parkview, Johannesburg, 2193<br>
+
+                    <!-- Telephone link allows users to call the office directly. -->
                     Tel: <a href="tel:+27110000001">011 000 0001</a><br>
+
+                    <!-- Email link allows users to send an email to the office. -->
                     Email: <a href="mailto:jhb@greenpathfoundation.org.za">jhb@greenpathfoundation.org.za</a>
                 </address>
+
                 <!-- Embedded map placeholder: to be replaced with a live Google Maps embed in Part 3 -->
                 <iframe
                     title="Map showing the Johannesburg office location"
@@ -49,13 +88,23 @@
                 </iframe>
             </article>
 
+
+            <!-- Contains contact and map information for the Soweto office. -->
             <article class="location">
                 <h3>Soweto Office</h3>
+
+                <!-- The address element identifies the physical location and contact details. -->
                 <address>
                     45 Vilakazi Street, Orlando West, Soweto, 1804<br>
+
+                    <!-- Telephone link allows users to call the Soweto office directly. -->
                     Tel: <a href="tel:+27110000002">011 000 0002</a><br>
+
+                    <!-- Email link allows users to send an email to the Soweto office. -->
                     Email: <a href="mailto:soweto@greenpathfoundation.org.za">soweto@greenpathfoundation.org.za</a>
                 </address>
+
+                <!-- Displays an embedded map showing the location of the Soweto office. -->
                 <iframe
                     title="Map showing the Soweto office location"
                     src="https://www.google.com/maps?q=Orlando+West,Soweto&output=embed"
@@ -64,41 +113,79 @@
             </article>
         </section>
 
+
         <!-- General contact form -->
         <section class="contact-form">
+
+            <!-- Heading introduces the form used to contact the organisation. -->
             <h2>Send Us a Message</h2>
+
+            <!-- Form collects visitor information and uses POST to submit the data. -->
             <form action="#" method="post">
 
+                <!-- Label identifies the field where the visitor enters their name. -->
                 <label for="name">Full Name</label>
+
+                <!-- Text input collects the visitor's full name and makes it required. -->
                 <input type="text" id="name" name="name" required>
 
+
+                <!-- Label identifies the field where the visitor enters their email address. -->
                 <label for="email">Email Address</label>
+
+                <!-- Email input checks that the visitor enters an email address. -->
                 <input type="email" id="email" name="email" required>
 
+
+                <!-- Label identifies the field where the visitor enters the message subject. -->
                 <label for="subject">Subject</label>
+
+                <!-- Text input allows the visitor to enter a subject for their message. -->
                 <input type="text" id="subject" name="subject">
 
+
+                <!-- Label identifies the main message field. -->
                 <label for="message">Message</label>
+
+                <!-- Text area provides space for the visitor to type their message. -->
                 <textarea id="message" name="message" rows="6" required></textarea>
 
+
+                <!-- Submit button sends the completed contact form. -->
                 <button type="submit">Send Message</button>
             </form>
         </section>
 
     </main>
 
+
+    <!-- Footer contains copyright information and additional website navigation. -->
     <footer>
+
+        <!-- Displays the copyright notice for GreenPath Community Foundation. -->
         <p>&copy; 2026 GreenPath Community Foundation. All rights reserved.</p>
+
+        <!-- Footer navigation provides links to the main pages of the website. -->
         <nav>
             <ul>
+                <!-- Footer link to the home page. -->
                 <li><a href="../index.html">Home</a></li>
+
+                <!-- Footer link to the About Us page. -->
                 <li><a href="about.html">About Us</a></li>
+
+                <!-- Footer link to the Programmes page. -->
                 <li><a href="services.html">Programmes</a></li>
+
+                <!-- Footer link to the Get Involved page. -->
                 <li><a href="enquiry.html">Get Involved</a></li>
+
+                <!-- Footer link to the Contact Us page. -->
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </footer>
+
 
 </body>
 </html>
