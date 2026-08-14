@@ -1,85 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Defines the document as HTML5 and sets the webpage language to English. -->
     <meta charset="UTF-8">
+
+    <!-- Makes the webpage responsive on different devices and screen sizes. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Sets the title displayed in the browser tab. -->
     <title>Get Involved | GreenPath Community Foundation</title>
+
+    <!-- Provides a description of the page for search engines and visitors. -->
     <meta name="description" content="Enquire about volunteering with or sponsoring GreenPath Community Foundation's environmental programmes.">
+
+    <!-- Links the HTML page to the external CSS stylesheet. -->
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
+    <!-- Header contains the organisation logo and main navigation menu. -->
     <header>
+
+        <!-- Displays the organisation name and links back to the home page. -->
         <div class="logo">
             <a href="../index.html">GreenPath Community Foundation</a>
         </div>
+
+        <!-- Main navigation provides links to the different website pages. -->
         <nav>
             <ul>
+                <!-- Links visitors to the home page. -->
                 <li><a href="../index.html">Home</a></li>
+
+                <!-- Links visitors to information about the organisation. -->
                 <li><a href="about.html">About Us</a></li>
+
+                <!-- Links visitors to the organisation's environmental programmes. -->
                 <li><a href="services.html">Programmes</a></li>
+
+                <!-- Links visitors to the current Get Involved page. -->
                 <li><a href="enquiry.html">Get Involved</a></li>
+
+                <!-- Links visitors to the organisation's contact information. -->
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
+
+    <!-- Main element contains the primary content of the Get Involved page. -->
     <main>
 
+        <!-- Page heading introduces visitors to the purpose of the enquiry page. -->
         <section class="page-heading">
             <h1>Get Involved</h1>
+
+            <!-- Explains how visitors can support the organisation through volunteering or sponsorship. -->
             <p>As a non-profit organisation, GreenPath relies on volunteers and sponsors to run our
                 programmes. Tell us how you'd like to be involved and we'll be in touch.</p>
         </section>
 
+
         <!-- Enquiry form: allows the visitor to enquire as a volunteer or as a sponsor -->
         <section class="enquiry-form">
+
+            <!-- Form collects information from visitors interested in supporting GreenPath. -->
             <form action="#" method="post">
 
+                <!-- Label identifies the field where the visitor enters their full name. -->
                 <label for="fullname">Full Name</label>
+
+                <!-- Text input collects the visitor's full name and makes it required. -->
                 <input type="text" id="fullname" name="fullname" required>
 
+
+                <!-- Label identifies the field where the visitor enters their email address. -->
                 <label for="email">Email Address</label>
+
+                <!-- Email input collects an email address and validates the input format. -->
                 <input type="email" id="email" name="email" required>
 
+
+                <!-- Label identifies the field where the visitor enters their phone number. -->
                 <label for="phone">Phone Number</label>
+
+                <!-- Telephone input allows the visitor to provide a contact number. -->
                 <input type="tel" id="phone" name="phone">
+
 
                 <!-- Lets the visitor choose whether they are enquiring as a volunteer or a sponsor -->
                 <fieldset>
+
+                    <!-- Groups the volunteer and sponsor choices under one question. -->
                     <legend>I am enquiring as a:</legend>
 
+                    <!-- Radio button allows the visitor to select the volunteer option. -->
                     <input type="radio" id="volunteer" name="enquiry-type" value="volunteer" checked>
+
+                    <!-- Label identifies the volunteer radio button option. -->
                     <label for="volunteer">Volunteer</label>
 
+                    <!-- Radio button allows the visitor to select the sponsor or partner option. -->
                     <input type="radio" id="sponsor" name="enquiry-type" value="sponsor">
+
+                    <!-- Label identifies the sponsor or partner radio button option. -->
                     <label for="sponsor">Sponsor / Partner</label>
                 </fieldset>
 
+
+                <!-- Label identifies the area where the visitor can provide more information. -->
                 <label for="message">Tell Us More</label>
+
+                <!-- Text area allows visitors to describe their availability or sponsorship interests. -->
                 <textarea id="message" name="message" rows="6"
                     placeholder="e.g. availability to volunteer, or the type of sponsorship you have in mind"></textarea>
 
+                <!-- Submit button sends the completed enquiry form. -->
                 <button type="submit">Submit Enquiry</button>
             </form>
         </section>
 
     </main>
 
+
+    <!-- Footer contains copyright information and secondary website navigation. -->
     <footer>
+
+        <!-- Displays the copyright notice for GreenPath Community Foundation. -->
         <p>&copy; 2026 GreenPath Community Foundation. All rights reserved.</p>
+
+        <!-- Footer navigation provides links to the main website pages. -->
         <nav>
             <ul>
+                <!-- Footer link to the home page. -->
                 <li><a href="../index.html">Home</a></li>
+
+                <!-- Footer link to the About Us page. -->
                 <li><a href="about.html">About Us</a></li>
+
+                <!-- Footer link to the Programmes page. -->
                 <li><a href="services.html">Programmes</a></li>
+
+                <!-- Footer link to the Get Involved page. -->
                 <li><a href="enquiry.html">Get Involved</a></li>
+
+                <!-- Footer link to the Contact page. -->
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </footer>
 
+
 </body>
 </html>
-
-
