@@ -391,3 +391,145 @@ footer nav a {
     max-width: 850px;
     margin-bottom: 0.8rem;
 }
+
+
+/* Keep every page section aligned to the same readable content width. */
+main {
+    width: min(1120px, 92%);
+    margin: 0 auto;
+}
+
+/* Give page headings a consistent vertical rhythm. */
+.page-heading {
+    padding: 3.5rem 1rem 2rem;
+}
+
+.page-heading h1 {
+    margin-bottom: 0.75rem;
+}
+
+/* Keep text blocks centred and prevent very long lines. */
+main p {
+    max-width: 850px;
+}
+
+.intro p,
+.hero p,
+.page-heading p,
+.cta p,
+.partnerships p,
+.participation p,
+.contact-information p {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Use equal-width cards and consistent alignment for programme highlights. */
+.highlights ul,
+.team ul {
+    align-items: stretch;
+}
+
+.highlights li,
+.team li {
+    height: 100%;
+}
+
+/* Align programme content consistently and separate each programme clearly. */
+.programme {
+    width: 100%;
+    margin: 0 auto 2rem;
+}
+
+.programme:last-of-type {
+    margin-bottom: 0;
+}
+
+.programme h2,
+.programme p {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Keep contact cards at equal height and align their content. */
+.locations {
+    align-items: stretch;
+}
+
+.location {
+    height: 100%;
+}
+
+/* Give the contact and enquiry forms a consistent width and spacing. */
+.enquiry-form,
+.contact-form {
+    width: min(800px, 100%);
+}
+
+/* Improve readability of all lists in information sections. */
+.impact li,
+.values li,
+.purpose li,
+.programme-benefits li,
+.ways-to-help li {
+    line-height: 1.6;
+}
+
+/* Prevent navigation items from creating uneven spacing. */
+header nav ul,
+footer nav ul {
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Improve alignment and spacing on smaller screens. */
+@media (max-width: 768px) {
+    main {
+        width: min(94%, 680px);
+    }
+
+    .page-heading {
+        padding: 2.5rem 0 1.5rem;
+    }
+
+    .locations {
+        grid-template-columns: 1fr;
+    }
+
+    .programme img {
+        max-height: 300px;
+    }
+}
+
+/* Keep content comfortably spaced on very small screens. */
+@media (max-width: 480px) {
+    main {
+        width: 92%;
+    }
+
+    section {
+        padding: 2rem 0;
+    }
+
+    .page-heading {
+        padding: 2rem 0 1rem;
+    }
+
+    .impact,
+    .values,
+    .purpose,
+    .partnerships,
+    .programme-benefits,
+    .participation,
+    .ways-to-help,
+    .contact-information {
+        padding: 1.25rem;
+    }
+
+    .hero img,
+    .programme img {
+        border-radius: 8px;
+    }
+}
