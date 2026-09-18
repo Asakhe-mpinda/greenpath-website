@@ -849,3 +849,159 @@ footer nav ul {
         border-radius: 8px;
     }
 }
+
+
+/* Responsive layout: adjust navigation, cards, forms and content for tablets. */
+@media (max-width: 900px) {
+    header {
+        padding: 1rem 3%;
+    }
+
+    nav ul {
+        gap: 0.75rem;
+    }
+
+    .highlights ul,
+    .team ul {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .locations {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero img {
+        max-height: 420px;
+    }
+}
+
+/* Responsive layout: stack major elements and improve readability on phones. */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0.75rem;
+        text-align: center;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    nav ul {
+        justify-content: center;
+        gap: 0.5rem 0.9rem;
+    }
+
+    nav a {
+        font-size: 0.95rem;
+    }
+
+    main {
+        width: 94%;
+    }
+
+    section {
+        padding: 2rem 0;
+    }
+
+    .page-heading {
+        padding: 2rem 0 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    .highlights ul,
+    .team ul,
+    .locations {
+        grid-template-columns: 1fr;
+    }
+
+    .hero img,
+    .programme img {
+        max-height: 280px;
+    }
+
+    .cta-button,
+    button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .enquiry-form,
+    .contact-form {
+        padding: 1rem;
+    }
+
+    input,
+    textarea,
+    select {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    fieldset label {
+        display: block;
+        margin: 0.5rem 0;
+    }
+
+    .impact,
+    .values,
+    .purpose,
+    .partnerships,
+    .programme-benefits,
+    .participation,
+    .ways-to-help,
+    .contact-information {
+        padding: 1.25rem;
+    }
+
+    footer {
+        padding: 1.5rem 4%;
+    }
+
+    footer nav ul {
+        flex-direction: column;
+    }
+}
+
+/* Responsive layout: optimize spacing and text for very small phones. */
+@media (max-width: 380px) {
+    .logo a {
+        font-size: 1rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav a {
+        font-size: 0.9rem;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    p,
+    li {
+        font-size: 0.95rem;
+    }
+
+    .hero img,
+    .programme img {
+        max-height: 220px;
+    }
+}
