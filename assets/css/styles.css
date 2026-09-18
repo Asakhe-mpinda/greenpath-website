@@ -2,161 +2,265 @@
 
 /* Reset default browser spacing and use a predictable box model. */
 * {
+    /* CSS declaration sets a style property for the selected element. */
     box-sizing: border-box;
+    /* CSS declaration sets a style property for the selected element. */
     margin: 0;
+    /* CSS declaration sets a style property for the selected element. */
     padding: 0;
 }
 
 /* Set the main typography, colours, background and line spacing. */
+
+/* CSS selector targets the matching HTML element or class. */
 body {
+    /* CSS declaration sets a style property for the selected element. */
     font-family: Arial, Helvetica, sans-serif;
+    /* CSS declaration sets a style property for the selected element. */
     color: #23412f;
+    /* CSS declaration sets a style property for the selected element. */
     background: #f5f8f3;
+    /* CSS declaration sets a style property for the selected element. */
     line-height: 1.6;
 }
 
 /* Keep images responsive and prevent them from overflowing their containers. */
+
+/* CSS selector targets the matching HTML element or class. */
 img {
+    /* CSS declaration sets a style property for the selected element. */
     display: block;
+    /* CSS declaration sets a style property for the selected element. */
     max-width: 100%;
+    /* CSS declaration sets a style property for the selected element. */
     height: auto;
 }
 
 /* Create a consistent content width for the main sections. */
+
+/* CSS selector targets the matching HTML element or class. */
 main {
+    /* CSS declaration sets a style property for the selected element. */
     width: min(1100px, 92%);
+    /* CSS declaration sets a style property for the selected element. */
     margin: 0 auto;
 }
 
 /* Style the site header and keep navigation easy to use. */
+
+/* CSS selector targets the matching HTML element or class. */
 header {
+    /* CSS declaration sets a style property for the selected element. */
     display: flex;
+    /* CSS declaration sets a style property for the selected element. */
     justify-content: space-between;
+    /* CSS declaration sets a style property for the selected element. */
     align-items: center;
+    /* CSS declaration sets a style property for the selected element. */
     gap: 2rem;
+    /* CSS declaration sets a style property for the selected element. */
     padding: 1rem 4%;
+    /* CSS declaration sets a style property for the selected element. */
     background: #1f5d3a;
+    /* CSS declaration sets a style property for the selected element. */
     color: #ffffff;
 }
 
 /* Make the organisation name look like a clear website logo. */
+
+/* CSS selector targets the matching HTML element or class. */
 .logo a {
+    /* CSS declaration sets a style property for the selected element. */
     color: #ffffff;
+    /* CSS declaration sets a style property for the selected element. */
     text-decoration: none;
+    /* CSS declaration sets a style property for the selected element. */
     font-size: 1.35rem;
+    /* CSS declaration sets a style property for the selected element. */
     font-weight: 700;
 }
 
 /* Remove default list styling from navigation menus. */
+
+/* CSS selector targets the matching HTML element or class. */
 nav ul {
+    /* CSS declaration sets a style property for the selected element. */
     display: flex;
+    /* CSS declaration sets a style property for the selected element. */
     flex-wrap: wrap;
+    /* CSS declaration sets a style property for the selected element. */
     gap: 1rem;
+    /* CSS declaration sets a style property for the selected element. */
     list-style: none;
 }
 
 /* Style navigation links for good contrast and readability. */
+
+/* CSS selector targets the matching HTML element or class. */
 nav a {
+    /* CSS declaration sets a style property for the selected element. */
     color: #ffffff;
+    /* CSS declaration sets a style property for the selected element. */
     text-decoration: none;
+    /* CSS declaration sets a style property for the selected element. */
     font-weight: 600;
 }
 
 /* Add a visible hover state to navigation links. */
 nav a:hover,
+
+/* CSS selector targets the matching HTML element or class. */
 nav a:focus {
+    /* CSS declaration sets a style property for the selected element. */
     text-decoration: underline;
 }
 
 /* Give major sections consistent spacing. */
+
+/* CSS selector targets the matching HTML element or class. */
 section {
+    /* CSS declaration sets a style property for the selected element. */
     padding: 3rem 0;
 }
 
 /* Style page headings and major section headings. */
 h1,
 h2,
+
+/* CSS selector targets the matching HTML element or class. */
 h3 {
+    /* CSS declaration sets a style property for the selected element. */
     line-height: 1.2;
+    /* CSS declaration sets a style property for the selected element. */
     margin-bottom: 1rem;
 }
 
+/* CSS selector targets the matching HTML element or class. */
 h1 {
+    /* CSS declaration sets a style property for the selected element. */
     font-size: clamp(2rem, 5vw, 3.5rem);
 }
 
+/* CSS selector targets the matching HTML element or class. */
 h2 {
+    /* CSS declaration sets a style property for the selected element. */
     color: #1f5d3a;
+    /* CSS declaration sets a style property for the selected element. */
     font-size: clamp(1.6rem, 3vw, 2.4rem);
 }
 
+/* CSS selector targets the matching HTML element or class. */
 h3 {
+    /* CSS declaration sets a style property for the selected element. */
     color: #2f7549;
 }
 
 /* Format the home page hero area. */
+
+/* CSS selector targets the matching HTML element or class. */
 .hero {
+    /* CSS declaration sets a style property for the selected element. */
     text-align: center;
+    /* CSS declaration sets a style property for the selected element. */
     padding-top: 2rem;
 }
 
+/* CSS selector targets the matching HTML element or class. */
 .hero img {
+    /* CSS declaration sets a style property for the selected element. */
     width: 100%;
+    /* CSS declaration sets a style property for the selected element. */
     max-height: 520px;
+    /* CSS declaration sets a style property for the selected element. */
     object-fit: cover;
+    /* CSS declaration sets a style property for the selected element. */
     border-radius: 12px;
+    /* CSS declaration sets a style property for the selected element. */
     margin-bottom: 2rem;
 }
 
+/* CSS selector targets the matching HTML element or class. */
 .hero p {
+    /* CSS declaration sets a style property for the selected element. */
     max-width: 800px;
+    /* CSS declaration sets a style property for the selected element. */
     margin: 0 auto 1.5rem;
+    /* CSS declaration sets a style property for the selected element. */
     font-size: 1.1rem;
 }
 
 /* Style reusable call-to-action buttons. */
 .cta-button,
+
+/* CSS selector targets the matching HTML element or class. */
 button {
+    /* CSS declaration sets a style property for the selected element. */
     display: inline-block;
+    /* CSS declaration sets a style property for the selected element. */
     border: 0;
+    /* CSS declaration sets a style property for the selected element. */
     border-radius: 6px;
+    /* CSS declaration sets a style property for the selected element. */
     padding: 0.75rem 1.25rem;
+    /* CSS declaration sets a style property for the selected element. */
     background: #2f7549;
+    /* CSS declaration sets a style property for the selected element. */
     color: #ffffff;
+    /* CSS declaration sets a style property for the selected element. */
     font: inherit;
+    /* CSS declaration sets a style property for the selected element. */
     font-weight: 700;
+    /* CSS declaration sets a style property for the selected element. */
     text-decoration: none;
+    /* CSS declaration sets a style property for the selected element. */
     cursor: pointer;
 }
 
 .cta-button:hover,
 .cta-button:focus,
 button:hover,
+
+/* CSS selector targets the matching HTML element or class. */
 button:focus {
+    /* CSS declaration sets a style property for the selected element. */
     background: #1f5d3a;
 }
 
 /* Centre introductory and call-to-action content. */
 .intro,
 .cta,
+
+/* CSS selector targets the matching HTML element or class. */
 .page-heading {
+    /* CSS declaration sets a style property for the selected element. */
     text-align: center;
 }
 
 .intro p,
 .page-heading p,
+
+/* CSS selector targets the matching HTML element or class. */
 .cta p {
+    /* CSS declaration sets a style property for the selected element. */
     max-width: 800px;
+    /* CSS declaration sets a style property for the selected element. */
     margin: 0 auto;
 }
 
 /* Display programme highlights as responsive cards. */
 .highlights ul,
+
+/* CSS selector targets the matching HTML element or class. */
 .team ul {
+    /* CSS declaration sets a style property for the selected element. */
     display: grid;
+    /* CSS declaration sets a style property for the selected element. */
     grid-template-columns: repeat(3, 1fr);
+    /* CSS declaration sets a style property for the selected element. */
     gap: 1.5rem;
+    /* CSS declaration sets a style property for the selected element. */
     list-style: none;
+    /* CSS declaration sets a style property for the selected element. */
     margin-top: 1.5rem;
 }
 
@@ -165,180 +269,299 @@ button:focus {
 .programme,
 .location,
 .enquiry-form,
+
+/* CSS selector targets the matching HTML element or class. */
 .contact-form {
+    /* CSS declaration sets a style property for the selected element. */
     background: #ffffff;
+    /* CSS declaration sets a style property for the selected element. */
     border: 1px solid #dce8df;
+    /* CSS declaration sets a style property for the selected element. */
     border-radius: 10px;
+    /* CSS declaration sets a style property for the selected element. */
     padding: 1.5rem;
+    /* CSS declaration sets a style property for the selected element. */
     box-shadow: 0 4px 14px rgba(31, 93, 58, 0.08);
 }
 
 /* Add spacing around links that appear after content sections. */
+
+/* CSS selector targets the matching HTML element or class. */
 .highlights > a {
+    /* CSS declaration sets a style property for the selected element. */
     display: inline-block;
+    /* CSS declaration sets a style property for the selected element. */
     margin-top: 1.5rem;
+    /* CSS declaration sets a style property for the selected element. */
     color: #1f5d3a;
+    /* CSS declaration sets a style property for the selected element. */
     font-weight: 700;
 }
 
 /* Arrange programme sections neatly on the programmes page. */
+
+/* CSS selector targets the matching HTML element or class. */
 .programme {
+    /* CSS declaration sets a style property for the selected element. */
     margin-bottom: 2rem;
 }
 
+/* CSS selector targets the matching HTML element or class. */
 .programme img {
+    /* CSS declaration sets a style property for the selected element. */
     width: 100%;
+    /* CSS declaration sets a style property for the selected element. */
     max-height: 360px;
+    /* CSS declaration sets a style property for the selected element. */
     object-fit: cover;
+    /* CSS declaration sets a style property for the selected element. */
     border-radius: 8px;
+    /* CSS declaration sets a style property for the selected element. */
     margin-bottom: 1.25rem;
 }
 
 /* Style the mission and vision section for clear separation. */
+
+/* CSS selector targets the matching HTML element or class. */
 .mission-vision {
+    /* CSS declaration sets a style property for the selected element. */
     background: #eaf3ec;
+    /* CSS declaration sets a style property for the selected element. */
     padding: 2rem;
+    /* CSS declaration sets a style property for the selected element. */
     border-radius: 10px;
 }
 
 /* Display team members in a responsive card layout. */
+
+/* CSS selector targets the matching HTML element or class. */
 .team li {
+    /* CSS declaration sets a style property for the selected element. */
     text-align: center;
 }
 
+/* CSS selector targets the matching HTML element or class. */
 .team img {
+    /* CSS declaration sets a style property for the selected element. */
     width: 150px;
+    /* CSS declaration sets a style property for the selected element. */
     height: 150px;
+    /* CSS declaration sets a style property for the selected element. */
     object-fit: cover;
+    /* CSS declaration sets a style property for the selected element. */
     border-radius: 50%;
+    /* CSS declaration sets a style property for the selected element. */
     margin: 0 auto 1rem;
 }
 
 /* Add spacing between the contact locations. */
+
+/* CSS selector targets the matching HTML element or class. */
 .locations {
+    /* CSS declaration sets a style property for the selected element. */
     display: grid;
+    /* CSS declaration sets a style property for the selected element. */
     grid-template-columns: repeat(2, 1fr);
+    /* CSS declaration sets a style property for the selected element. */
     gap: 1.5rem;
 }
 
+/* CSS selector targets the matching HTML element or class. */
 .location address {
+    /* CSS declaration sets a style property for the selected element. */
     font-style: normal;
+    /* CSS declaration sets a style property for the selected element. */
     margin-bottom: 1rem;
 }
 
+/* CSS selector targets the matching HTML element or class. */
 .location a {
+    /* CSS declaration sets a style property for the selected element. */
     color: #1f5d3a;
 }
 
 /* Make embedded maps fit neatly inside location cards. */
+
+/* CSS selector targets the matching HTML element or class. */
 .location iframe {
+    /* CSS declaration sets a style property for the selected element. */
     display: block;
+    /* CSS declaration sets a style property for the selected element. */
     width: 100%;
+    /* CSS declaration sets a style property for the selected element. */
     border: 0;
+    /* CSS declaration sets a style property for the selected element. */
     border-radius: 6px;
 }
 
 /* Keep forms readable and easy to complete. */
 .enquiry-form,
+
+/* CSS selector targets the matching HTML element or class. */
 .contact-form {
+    /* CSS declaration sets a style property for the selected element. */
     max-width: 800px;
+    /* CSS declaration sets a style property for the selected element. */
     margin: 0 auto;
 }
 
+/* CSS selector targets the matching HTML element or class. */
 form {
+    /* CSS declaration sets a style property for the selected element. */
     display: flex;
+    /* CSS declaration sets a style property for the selected element. */
     flex-direction: column;
+    /* CSS declaration sets a style property for the selected element. */
     gap: 0.65rem;
 }
 
 label,
+
+/* CSS selector targets the matching HTML element or class. */
 legend {
+    /* CSS declaration sets a style property for the selected element. */
     font-weight: 700;
 }
 
 input,
+
+/* CSS selector targets the matching HTML element or class. */
 textarea {
+    /* CSS declaration sets a style property for the selected element. */
     width: 100%;
+    /* CSS declaration sets a style property for the selected element. */
     padding: 0.75rem;
+    /* CSS declaration sets a style property for the selected element. */
     border: 1px solid #b9cdbf;
+    /* CSS declaration sets a style property for the selected element. */
     border-radius: 5px;
+    /* CSS declaration sets a style property for the selected element. */
     font: inherit;
 }
 
 input:focus,
+
+/* CSS selector targets the matching HTML element or class. */
 textarea:focus {
+    /* CSS declaration sets a style property for the selected element. */
     outline: 2px solid #2f7549;
+    /* CSS declaration sets a style property for the selected element. */
     outline-offset: 1px;
 }
 
+/* CSS selector targets the matching HTML element or class. */
 fieldset {
+    /* CSS declaration sets a style property for the selected element. */
     border: 1px solid #b9cdbf;
+    /* CSS declaration sets a style property for the selected element. */
     border-radius: 6px;
+    /* CSS declaration sets a style property for the selected element. */
     padding: 1rem;
+    /* CSS declaration sets a style property for the selected element. */
     margin: 0.5rem 0;
 }
 
+/* CSS selector targets the matching HTML element or class. */
 fieldset input {
+    /* CSS declaration sets a style property for the selected element. */
     width: auto;
+    /* CSS declaration sets a style property for the selected element. */
     margin-right: 0.35rem;
 }
 
+/* CSS selector targets the matching HTML element or class. */
 fieldset label {
+    /* CSS declaration sets a style property for the selected element. */
     display: inline;
+    /* CSS declaration sets a style property for the selected element. */
     margin-right: 1rem;
 }
 
 /* Style the footer consistently across the website. */
+
+/* CSS selector targets the matching HTML element or class. */
 footer {
+    /* CSS declaration sets a style property for the selected element. */
     margin-top: 3rem;
+    /* CSS declaration sets a style property for the selected element. */
     padding: 2rem 4%;
+    /* CSS declaration sets a style property for the selected element. */
     background: #173f29;
+    /* CSS declaration sets a style property for the selected element. */
     color: #ffffff;
+    /* CSS declaration sets a style property for the selected element. */
     text-align: center;
 }
 
+/* CSS selector targets the matching HTML element or class. */
 footer nav {
+    /* CSS declaration sets a style property for the selected element. */
     margin-top: 1rem;
 }
 
+/* CSS selector targets the matching HTML element or class. */
 footer nav ul {
+    /* CSS declaration sets a style property for the selected element. */
     justify-content: center;
 }
 
+/* CSS selector targets the matching HTML element or class. */
 footer nav a {
+    /* CSS declaration sets a style property for the selected element. */
     color: #ffffff;
 }
 
 /* Adapt the layout for tablets and smaller screens. */
+
+/* Responsive media query changes the layout for smaller screen sizes. */
 @media (max-width: 768px) {
+
+/* CSS selector targets the matching HTML element or class. */
     header {
+    /* CSS declaration sets a style property for the selected element. */
         flex-direction: column;
+    /* CSS declaration sets a style property for the selected element. */
         text-align: center;
     }
 
     .highlights ul,
     .team ul,
+
+/* CSS selector targets the matching HTML element or class. */
     .locations {
+    /* CSS declaration sets a style property for the selected element. */
         grid-template-columns: 1fr;
     }
 
+/* CSS selector targets the matching HTML element or class. */
     section {
+    /* CSS declaration sets a style property for the selected element. */
         padding: 2rem 0;
     }
 }
 
 /* Improve spacing and navigation for small mobile screens. */
+
+/* Responsive media query changes the layout for smaller screen sizes. */
 @media (max-width: 480px) {
+
+/* CSS selector targets the matching HTML element or class. */
     nav ul {
+    /* CSS declaration sets a style property for the selected element. */
         justify-content: center;
+    /* CSS declaration sets a style property for the selected element. */
         gap: 0.7rem;
     }
 
+/* CSS selector targets the matching HTML element or class. */
     .logo a {
+    /* CSS declaration sets a style property for the selected element. */
         font-size: 1.1rem;
     }
 
+/* CSS selector targets the matching HTML element or class. */
     .hero p {
+    /* CSS declaration sets a style property for the selected element. */
         font-size: 1rem;
     }
 
@@ -347,11 +570,13 @@ footer nav a {
     .programme,
     .location,
     .enquiry-form,
+
+/* CSS selector targets the matching HTML element or class. */
     .contact-form {
+    /* CSS declaration sets a style property for the selected element. */
         padding: 1rem;
     }
 }
-
 
 /* Style additional information sections consistently across all pages. */
 .impact,
@@ -361,10 +586,16 @@ footer nav a {
 .programme-benefits,
 .participation,
 .ways-to-help,
+
+/* CSS selector targets the matching HTML element or class. */
 .contact-information {
+    /* CSS declaration sets a style property for the selected element. */
     margin: 2rem 0;
+    /* CSS declaration sets a style property for the selected element. */
     padding: 2rem;
+    /* CSS declaration sets a style property for the selected element. */
     background: #eaf3ec;
+    /* CSS declaration sets a style property for the selected element. */
     border-radius: 10px;
 }
 
@@ -372,8 +603,12 @@ footer nav a {
 .values ul,
 .purpose ul,
 .programme-benefits ul,
+
+/* CSS selector targets the matching HTML element or class. */
 .ways-to-help ul {
+    /* CSS declaration sets a style property for the selected element. */
     margin-top: 1rem;
+    /* CSS declaration sets a style property for the selected element. */
     padding-left: 1.5rem;
 }
 
@@ -381,35 +616,53 @@ footer nav a {
 .values li,
 .purpose li,
 .programme-benefits li,
+
+/* CSS selector targets the matching HTML element or class. */
 .ways-to-help li {
+    /* CSS declaration sets a style property for the selected element. */
     margin-bottom: 0.65rem;
 }
 
 .partnerships p,
 .participation p,
+
+/* CSS selector targets the matching HTML element or class. */
 .contact-information p {
+    /* CSS declaration sets a style property for the selected element. */
     max-width: 850px;
+    /* CSS declaration sets a style property for the selected element. */
     margin-bottom: 0.8rem;
 }
 
-
 /* Keep every page section aligned to the same readable content width. */
+
+/* CSS selector targets the matching HTML element or class. */
 main {
+    /* CSS declaration sets a style property for the selected element. */
     width: min(1120px, 92%);
+    /* CSS declaration sets a style property for the selected element. */
     margin: 0 auto;
 }
 
 /* Give page headings a consistent vertical rhythm. */
+
+/* CSS selector targets the matching HTML element or class. */
 .page-heading {
+    /* CSS declaration sets a style property for the selected element. */
     padding: 3.5rem 1rem 2rem;
 }
 
+/* CSS selector targets the matching HTML element or class. */
 .page-heading h1 {
+    /* CSS declaration sets a style property for the selected element. */
     margin-bottom: 0.75rem;
 }
 
 /* Keep text blocks centred and prevent very long lines. */
+
+/* CSS selector targets the matching HTML element or class. */
 main p {
+    /* CSS declaration sets a style property for the selected element. */
     max-width: 850px;
 }
 
@@ -419,51 +672,80 @@ main p {
 .cta p,
 .partnerships p,
 .participation p,
+
+/* CSS selector targets the matching HTML element or class. */
 .contact-information p {
+    /* CSS declaration sets a style property for the selected element. */
     margin-left: auto;
+    /* CSS declaration sets a style property for the selected element. */
     margin-right: auto;
 }
 
 /* Use equal-width cards and consistent alignment for programme highlights. */
 .highlights ul,
+
+/* CSS selector targets the matching HTML element or class. */
 .team ul {
+    /* CSS declaration sets a style property for the selected element. */
     align-items: stretch;
 }
 
 .highlights li,
+
+/* CSS selector targets the matching HTML element or class. */
 .team li {
+    /* CSS declaration sets a style property for the selected element. */
     height: 100%;
 }
 
 /* Align programme content consistently and separate each programme clearly. */
+
+/* CSS selector targets the matching HTML element or class. */
 .programme {
+    /* CSS declaration sets a style property for the selected element. */
     width: 100%;
+    /* CSS declaration sets a style property for the selected element. */
     margin: 0 auto 2rem;
 }
 
+/* CSS selector targets the matching HTML element or class. */
 .programme:last-of-type {
+    /* CSS declaration sets a style property for the selected element. */
     margin-bottom: 0;
 }
 
 .programme h2,
+
+/* CSS selector targets the matching HTML element or class. */
 .programme p {
+    /* CSS declaration sets a style property for the selected element. */
     max-width: 900px;
+    /* CSS declaration sets a style property for the selected element. */
     margin-left: auto;
+    /* CSS declaration sets a style property for the selected element. */
     margin-right: auto;
 }
 
 /* Keep contact cards at equal height and align their content. */
+
+/* CSS selector targets the matching HTML element or class. */
 .locations {
+    /* CSS declaration sets a style property for the selected element. */
     align-items: stretch;
 }
 
+/* CSS selector targets the matching HTML element or class. */
 .location {
+    /* CSS declaration sets a style property for the selected element. */
     height: 100%;
 }
 
 /* Give the contact and enquiry forms a consistent width and spacing. */
 .enquiry-form,
+
+/* CSS selector targets the matching HTML element or class. */
 .contact-form {
+    /* CSS declaration sets a style property for the selected element. */
     width: min(800px, 100%);
 }
 
@@ -472,48 +754,76 @@ main p {
 .values li,
 .purpose li,
 .programme-benefits li,
+
+/* CSS selector targets the matching HTML element or class. */
 .ways-to-help li {
+    /* CSS declaration sets a style property for the selected element. */
     line-height: 1.6;
 }
 
 /* Prevent navigation items from creating uneven spacing. */
 header nav ul,
+
+/* CSS selector targets the matching HTML element or class. */
 footer nav ul {
+    /* CSS declaration sets a style property for the selected element. */
     align-items: center;
+    /* CSS declaration sets a style property for the selected element. */
     margin: 0;
+    /* CSS declaration sets a style property for the selected element. */
     padding: 0;
 }
 
 /* Improve alignment and spacing on smaller screens. */
+
+/* Responsive media query changes the layout for smaller screen sizes. */
 @media (max-width: 768px) {
+
+/* CSS selector targets the matching HTML element or class. */
     main {
+    /* CSS declaration sets a style property for the selected element. */
         width: min(94%, 680px);
     }
 
+/* CSS selector targets the matching HTML element or class. */
     .page-heading {
+    /* CSS declaration sets a style property for the selected element. */
         padding: 2.5rem 0 1.5rem;
     }
 
+/* CSS selector targets the matching HTML element or class. */
     .locations {
+    /* CSS declaration sets a style property for the selected element. */
         grid-template-columns: 1fr;
     }
 
+/* CSS selector targets the matching HTML element or class. */
     .programme img {
+    /* CSS declaration sets a style property for the selected element. */
         max-height: 300px;
     }
 }
 
 /* Keep content comfortably spaced on very small screens. */
+
+/* Responsive media query changes the layout for smaller screen sizes. */
 @media (max-width: 480px) {
+
+/* CSS selector targets the matching HTML element or class. */
     main {
+    /* CSS declaration sets a style property for the selected element. */
         width: 92%;
     }
 
+/* CSS selector targets the matching HTML element or class. */
     section {
+    /* CSS declaration sets a style property for the selected element. */
         padding: 2rem 0;
     }
 
+/* CSS selector targets the matching HTML element or class. */
     .page-heading {
+    /* CSS declaration sets a style property for the selected element. */
         padding: 2rem 0 1rem;
     }
 
@@ -524,12 +834,18 @@ footer nav ul {
     .programme-benefits,
     .participation,
     .ways-to-help,
+
+/* CSS selector targets the matching HTML element or class. */
     .contact-information {
+    /* CSS declaration sets a style property for the selected element. */
         padding: 1.25rem;
     }
 
     .hero img,
+
+/* CSS selector targets the matching HTML element or class. */
     .programme img {
+    /* CSS declaration sets a style property for the selected element. */
         border-radius: 8px;
     }
 }
