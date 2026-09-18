@@ -351,3 +351,43 @@ footer nav a {
         padding: 1rem;
     }
 }
+
+
+/* Style additional information sections consistently across all pages. */
+.impact,
+.values,
+.purpose,
+.partnerships,
+.programme-benefits,
+.participation,
+.ways-to-help,
+.contact-information {
+    margin: 2rem 0;
+    padding: 2rem;
+    background: #eaf3ec;
+    border-radius: 10px;
+}
+
+.impact ul,
+.values ul,
+.purpose ul,
+.programme-benefits ul,
+.ways-to-help ul {
+    margin-top: 1rem;
+    padding-left: 1.5rem;
+}
+
+.impact li,
+.values li,
+.purpose li,
+.programme-benefits li,
+.ways-to-help li {
+    margin-bottom: 0.65rem;
+}
+
+.partnerships p,
+.participation p,
+.contact-information p {
+    max-width: 850px;
+    margin-bottom: 0.8rem;
+}
