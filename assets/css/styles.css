@@ -1275,3 +1275,419 @@ nav a[aria-current="page"] {
         max-width: calc(100vw - 1rem);
     }
 }
+
+
+/* =========================================================
+   Responsive refinement layer
+   These rules intentionally follow the original styles so
+   shared components behave consistently across all pages.
+   ========================================================= */
+
+:root {
+    --content-gutter: clamp(1rem, 4vw, 2.5rem);
+    --section-space: clamp(2rem, 5vw, 3.5rem);
+    --card-space: clamp(1rem, 2.5vw, 1.5rem);
+}
+
+html {
+    min-width: 320px;
+    scroll-padding-top: 1rem;
+}
+
+body {
+    min-width: 320px;
+    overflow-wrap: anywhere;
+    -webkit-text-size-adjust: 100%;
+}
+
+main {
+    width: min(100% - (var(--content-gutter) * 2), 72rem);
+    min-width: 0;
+    margin-inline: auto;
+}
+
+header {
+    flex-wrap: wrap;
+    padding-top: max(1rem, env(safe-area-inset-top));
+    padding-right: max(var(--content-gutter), env(safe-area-inset-right));
+    padding-bottom: 1rem;
+    padding-left: max(var(--content-gutter), env(safe-area-inset-left));
+}
+
+.logo {
+    min-width: 0;
+}
+
+.logo a {
+    display: inline-block;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    line-height: 1.25;
+}
+
+header nav,
+footer nav {
+    min-width: 0;
+    max-width: 100%;
+}
+
+header nav ul,
+footer nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 0.85rem;
+}
+
+header nav a,
+footer nav a {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    padding: 0.45rem 0.25rem;
+    text-align: center;
+}
+
+section {
+    min-width: 0;
+    padding-block: var(--section-space);
+}
+
+h1 {
+    font-size: clamp(1.8rem, 4.4vw, 3.5rem);
+    text-wrap: balance;
+    overflow-wrap: anywhere;
+}
+
+h2 {
+    font-size: clamp(1.45rem, 3vw, 2.4rem);
+    text-wrap: balance;
+}
+
+h3 {
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    text-wrap: balance;
+}
+
+p,
+li,
+address,
+label {
+    overflow-wrap: anywhere;
+}
+
+p {
+    max-width: 75ch;
+}
+
+.hero img,
+.programme img,
+.team img,
+.gallery-image-button img {
+    max-width: 100%;
+}
+
+.hero img {
+    width: 100%;
+    aspect-ratio: 16 / 7;
+    height: auto;
+    max-height: 34rem;
+    object-fit: cover;
+}
+
+.programme img {
+    width: 100%;
+    aspect-ratio: 16 / 8;
+    height: auto;
+    max-height: 26rem;
+    object-fit: cover;
+}
+
+.highlights ul,
+.team ul,
+.locations,
+.opportunities-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+    align-items: stretch;
+}
+
+.highlights li,
+.team li,
+.location,
+.programme,
+.opportunity-card {
+    min-width: 0;
+    height: 100%;
+}
+
+.highlights li,
+.team li,
+.location,
+.programme,
+.enquiry-form,
+.contact-form,
+.opportunity-card {
+    padding: var(--card-space);
+}
+
+.team img {
+    width: clamp(7.5rem, 16vw, 9.5rem);
+    height: clamp(7.5rem, 16vw, 9.5rem);
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+
+.programme-tools {
+    width: 100%;
+    min-width: 0;
+    padding: var(--card-space);
+}
+
+.programme-tools input,
+.programme-tools select {
+    max-width: 100%;
+    min-height: 44px;
+}
+
+.cta-button,
+button,
+input,
+select,
+textarea {
+    max-width: 100%;
+}
+
+button,
+.cta-button {
+    min-height: 44px;
+    touch-action: manipulation;
+}
+
+.js-ajax-form input,
+.js-ajax-form select,
+.js-ajax-form textarea {
+    min-width: 0;
+    min-height: 44px;
+    font-size: 1rem;
+}
+
+.js-ajax-form textarea {
+    min-height: 9rem;
+    resize: vertical;
+}
+
+.js-ajax-form button {
+    align-self: flex-start;
+    max-width: 100%;
+    white-space: normal;
+}
+
+.field-error,
+.form-status {
+    overflow-wrap: anywhere;
+}
+
+.location iframe {
+    width: 100%;
+    min-height: 14rem;
+    height: clamp(14rem, 28vw, 20rem);
+    aspect-ratio: 16 / 9;
+}
+
+.service-map-section {
+    min-width: 0;
+    padding: clamp(1rem, 3vw, 2.5rem);
+}
+
+#greenpath-map {
+    width: 100%;
+    min-height: 18rem;
+    height: clamp(18rem, 42vw, 28rem);
+    max-width: 100%;
+    touch-action: pan-x pan-y;
+}
+
+.faq-section,
+.faq-list,
+.faq-item,
+.accordion-trigger,
+.accordion-panel {
+    min-width: 0;
+}
+
+.accordion-trigger {
+    min-height: 48px;
+    white-space: normal;
+}
+
+.gallery-image-button {
+    min-width: 0;
+    min-height: 44px;
+}
+
+.gallery-lightbox {
+    width: min(94vw, 62.5rem);
+    max-width: calc(100vw - 1rem);
+    max-height: 92vh;
+    max-height: 92dvh;
+    overflow: auto;
+    overscroll-behavior: contain;
+}
+
+.gallery-lightbox img {
+    width: auto;
+    max-width: 100%;
+    max-height: 70vh;
+    max-height: 70dvh;
+    object-fit: contain;
+}
+
+.lightbox-close {
+    min-width: 44px;
+    min-height: 44px;
+}
+
+footer {
+    padding-right: max(var(--content-gutter), env(safe-area-inset-right));
+    padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
+    padding-left: max(var(--content-gutter), env(safe-area-inset-left));
+}
+
+footer nav ul {
+    flex-direction: row;
+}
+
+@media (max-width: 64rem) {
+    header {
+        justify-content: center;
+        gap: 0.75rem 1.5rem;
+        text-align: center;
+    }
+
+    header nav {
+        width: 100%;
+    }
+
+    .highlights ul,
+    .team ul,
+    .locations,
+    .opportunities-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 42rem) {
+    :root {
+        --content-gutter: 1rem;
+        --section-space: 2rem;
+    }
+
+    header {
+        gap: 0.5rem;
+    }
+
+    header nav ul {
+        gap: 0.25rem 0.5rem;
+    }
+
+    header nav a {
+        padding-inline: 0.4rem;
+        font-size: 0.95rem;
+    }
+
+    .highlights ul,
+    .team ul,
+    .locations,
+    .opportunities-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .hero img {
+        aspect-ratio: 4 / 3;
+        max-height: 22rem;
+    }
+
+    .programme img {
+        aspect-ratio: 16 / 9;
+        max-height: 18rem;
+    }
+
+    .page-heading {
+        padding: 2rem 0 1rem;
+    }
+
+    .impact,
+    .values,
+    .purpose,
+    .partnerships,
+    .programme-benefits,
+    .participation,
+    .ways-to-help,
+    .contact-information {
+        padding: 1.15rem;
+    }
+
+    .js-ajax-form button,
+    .cta-button {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+
+    footer nav ul {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+}
+
+@media (max-width: 24rem) {
+    :root {
+        --content-gutter: 0.75rem;
+    }
+
+    .logo a {
+        font-size: 1.05rem;
+    }
+
+    header nav ul {
+        gap: 0.15rem 0.35rem;
+    }
+
+    header nav a {
+        min-height: 44px;
+        font-size: 0.9rem;
+    }
+
+    .hero img {
+        aspect-ratio: 1 / 1;
+        max-height: 17rem;
+    }
+
+    .service-map-section {
+        padding: 0.85rem;
+    }
+
+    .gallery-lightbox {
+        width: calc(100vw - 0.5rem);
+        padding: 0.6rem;
+    }
+}
+
+/* Avoid hover-only movement on touch devices and preserve reduced motion. */
+@media (hover: none) {
+    .cta-button:hover,
+    .impact-toggle:hover,
+    .hero img:hover,
+    .gallery-image-button:hover img {
+        transform: none;
+        filter: none;
+        box-shadow: none;
+    }
+}
+
+@supports (height: 100dvh) {
+    .gallery-lightbox {
+        max-height: 92dvh;
+    }
+}
