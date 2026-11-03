@@ -127,42 +127,64 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Open programme photos in a larger image lightbox.
+    // Open programme photos in an accessible image lightbox.
     const lightbox = document.getElementById("gallery-lightbox");
     const lightboxImage = document.getElementById("lightbox-image");
     const lightboxCaption = document.getElementById("lightbox-caption");
     const lightboxClose = document.querySelector(".lightbox-close");
+    let lastGalleryTrigger = null;
+
+    function closeGalleryLightbox() {
+        if (!lightbox) return;
+        if (typeof lightbox.close === "function" && lightbox.open) {
+            lightbox.close();
+        } else {
+            lightbox.removeAttribute("open");
+            if (lastGalleryTrigger) lastGalleryTrigger.focus();
+        }
+    }
+
     document.querySelectorAll("[data-lightbox-src]").forEach(function (imageButton) {
         imageButton.addEventListener("click", function () {
             if (!lightbox || !lightboxImage) return;
+            lastGalleryTrigger = imageButton;
             const altText = imageButton.dataset.lightboxAlt || "GreenPath programme image";
             lightboxImage.src = imageButton.dataset.lightboxSrc;
             lightboxImage.alt = altText;
             if (lightboxCaption) lightboxCaption.textContent = altText;
-            if (typeof lightbox.showModal === "function") lightbox.showModal();
-            else lightbox.setAttribute("open", "");
+
+            if (typeof lightbox.showModal === "function") {
+                lightbox.showModal();
+            } else {
+                lightbox.setAttribute("open", "");
+            }
+            if (lightboxClose) lightboxClose.focus();
+            else lightbox.focus();
         });
     });
-    function closeGalleryLightbox() {
-        if (!lightbox) return;
-        if (typeof lightbox.close === "function" && lightbox.open) lightbox.close();
-        else lightbox.removeAttribute("open");
-    }
+
     if (lightboxClose) lightboxClose.addEventListener("click", closeGalleryLightbox);
     if (lightbox) {
         lightbox.addEventListener("click", function (event) {
             if (event.target === lightbox) closeGalleryLightbox();
         });
+        lightbox.addEventListener("keydown", function (event) {
+            if (event.key === "Escape" && typeof lightbox.showModal !== "function") {
+                event.preventDefault();
+                closeGalleryLightbox();
+            }
+        });
         lightbox.addEventListener("close", function () {
             if (lightboxImage) lightboxImage.removeAttribute("src");
+            if (lastGalleryTrigger) lastGalleryTrigger.focus();
         });
     }
 
-
-    // Validate and submit enquiry/contact forms asynchronously.
+    // Validate and submit all enquiry/contact forms through Web3Forms.
     document.querySelectorAll(".js-ajax-form").forEach(function (form) {
         const status = form.querySelector(".form-status");
-        const fields = Array.from(form.querySelectorAll("input:not([type='hidden']):not([name='_honey']), select, textarea"));
+        const fields = Array.from(form.querySelectorAll("input:not([type='hidden']):not([name='botcheck']), select, textarea"));
+        const submitButton = form.querySelector("button[type='submit']");
 
         function showFieldError(field) {
             const errorElement = field.id ? document.getElementById(field.id + "-error") : null;
@@ -189,6 +211,7 @@ document.addEventListener("DOMContentLoaded", function () {
         form.addEventListener("submit", async function (event) {
             event.preventDefault();
             if (status) status.textContent = "";
+
             let firstInvalid = null;
             fields.forEach(function (field) {
                 if (showFieldError(field) && !firstInvalid) firstInvalid = field;
@@ -200,8 +223,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
-            const submitButton = form.querySelector("button[type='submit']");
             const originalLabel = submitButton ? submitButton.textContent : "";
+            const controller = new AbortController();
+            const timeoutId = window.setTimeout(function () {
+                controller.abort();
+            }, 15000);
+
             if (submitButton) {
                 submitButton.disabled = true;
                 submitButton.textContent = "Sending...";
@@ -212,24 +239,43 @@ document.addEventListener("DOMContentLoaded", function () {
                 const response = await fetch(form.action, {
                     method: "POST",
                     body: new FormData(form),
-                    headers: { "Accept": "application/json" }
+                    headers: { "Accept": "application/json" },
+                    signal: controller.signal
                 });
-                const result = await response.json();
-                if (!response.ok || result.success === false || result.success === "false") {
-                    throw new Error(result.message || "The form service could not accept your submission.");
+
+                const responseText = await response.text();
+                let result;
+                try {
+                    result = JSON.parse(responseText);
+                } catch (parseError) {
+                    throw new Error("The form service returned an unreadable response. Please try again later.");
                 }
+
+                if (!response.ok || !result || result.success !== true) {
+                    throw new Error(result && result.message
+                        ? result.message
+                        : "The form service could not accept your submission.");
+                }
+
                 form.reset();
                 fields.forEach(function (field) {
                     field.removeAttribute("aria-invalid");
                     const errorElement = field.id ? document.getElementById(field.id + "-error") : null;
                     if (errorElement) errorElement.textContent = "";
                 });
-                if (status) status.textContent = "Thank you. Your " +
-                    (form.dataset.formName === "enquiry" ? "enquiry" : "message") +
-                    " has been submitted successfully. The GreenPath team will follow up using your contact details.";
+                if (status) {
+                    status.textContent = "Thank you. Your " +
+                        (form.dataset.formName === "enquiry" ? "enquiry" : "message") +
+                        " has been submitted successfully.";
+                }
             } catch (error) {
-                if (status) status.textContent = "We could not send your message right now. Please try again later or contact the Johannesburg office using the details on this page.";
+                if (status) {
+                    status.textContent = error.name === "AbortError"
+                        ? "The request took too long. Please check your connection and try again."
+                        : (error.message || "We could not send your message. Please try again later.");
+                }
             } finally {
+                window.clearTimeout(timeoutId);
                 if (submitButton) {
                     submitButton.disabled = false;
                     submitButton.textContent = originalLabel;
@@ -244,11 +290,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (mapElement && typeof L !== "undefined") {
         const map = L.map("greenpath-map").setView([-26.0, 28.1], 7);
+        const mapStatus = mapElement.parentElement
+            ? mapElement.parentElement.querySelector(".map-note")
+            : null;
 
-        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        const tileLayer = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
             maxZoom: 18
         }).addTo(map);
+
+        tileLayer.on("tileerror", function () {
+            if (mapStatus) {
+                mapStatus.textContent = "Some map tiles could not load. Check your internet connection or try again later.";
+                mapStatus.setAttribute("role", "status");
+                mapStatus.setAttribute("aria-live", "polite");
+            }
+        });
 
         L.marker([-26.0, 28.1]).addTo(map)
             .bindPopup(
@@ -263,6 +320,7 @@ document.addEventListener("DOMContentLoaded", function () {
             map.invalidateSize();
         }, 250);
     } else if (mapElement) {
-        mapElement.textContent = "The map could not load. Please check your internet connection and try again.";
+        mapElement.textContent = "The map could not load because the map library is unavailable. Please check your internet connection and refresh the page.";
+        mapElement.setAttribute("role", "status");
     }
 });
