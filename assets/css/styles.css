@@ -1178,3 +1178,33 @@ html {
         transform: none;
     }
 }
+
+
+/* Search and category filter controls for the programmes page. */
+.programme-tools { max-width: 900px; margin: 0 auto 2rem; padding: 1.5rem; background: #eaf3ec; border-radius: 10px; }
+.programme-tools label { display: block; margin: 0.7rem 0 0.3rem; font-weight: 700; }
+.programme-tools input, .programme-tools select { width: 100%; max-width: 620px; padding: 0.8rem; border: 1px solid #b9cdbf; border-radius: 6px; background: #ffffff; color: #23412f; font: inherit; }
+.programme-results { margin-top: 0.75rem; font-weight: 700; }
+.programme[hidden] { display: none !important; }
+
+/* Clickable gallery thumbnails and the larger image lightbox. */
+.gallery-image-button { display: block; width: 100%; padding: 0; border: 0; background: transparent; cursor: zoom-in; }
+.gallery-image-button img { width: 100%; max-height: 420px; object-fit: cover; border-radius: 10px; transition: transform 300ms ease, filter 300ms ease; }
+.gallery-image-button:hover img, .gallery-image-button:focus-visible img { transform: scale(1.015); filter: brightness(0.92); }
+.gallery-lightbox { width: min(92vw, 1000px); max-width: none; max-height: 90vh; margin: auto; padding: 1rem; border: 0; border-radius: 12px; background: #ffffff; color: #23412f; box-shadow: 0 18px 60px rgba(0,0,0,0.35); }
+.gallery-lightbox::backdrop { background: rgba(10,25,16,0.82); }
+.gallery-lightbox[open] { animation: lightbox-appear 220ms ease both; }
+.gallery-lightbox img { display: block; max-width: 100%; max-height: 76vh; margin: 1.5rem auto 0.5rem; object-fit: contain; }
+.gallery-lightbox p { margin: 0 auto; text-align: center; }
+.lightbox-close { position: absolute; top: 0.4rem; right: 0.7rem; width: 2.5rem; height: 2.5rem; padding: 0; border: 0; border-radius: 50%; background: #1f5d3a; color: #ffffff; font-size: 1.7rem; cursor: pointer; }
+@keyframes lightbox-appear { from { opacity: 0; transform: scale(0.97); } to { opacity: 1; transform: scale(1); } }
+
+/* Layout for volunteer opportunity cards generated with JavaScript. */
+.opportunities-section { margin: 2rem 0; }
+.opportunities-section > p { max-width: 850px; margin-bottom: 1rem; }
+.opportunities-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.opportunity-card { display: flex; flex-direction: column; align-items: flex-start; gap: 0.7rem; padding: 1.25rem; border: 1px solid #dce8df; border-radius: 10px; background: #ffffff; box-shadow: 0 4px 14px rgba(31,93,58,0.06); }
+.opportunity-card h3, .opportunity-card p { margin: 0; }
+.opportunity-category { color: #2f7549; font-weight: 700; }
+.opportunity-card .cta-button { display: inline-block; margin-top: auto; }
+@media (max-width: 760px) { .opportunities-grid { grid-template-columns: 1fr; } .gallery-lightbox { width: 96vw; padding: 0.7rem; } }
