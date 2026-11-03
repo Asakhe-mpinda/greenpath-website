@@ -158,6 +158,86 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+
+    // Validate and submit enquiry/contact forms asynchronously.
+    document.querySelectorAll(".js-ajax-form").forEach(function (form) {
+        const status = form.querySelector(".form-status");
+        const fields = Array.from(form.querySelectorAll("input:not([type='hidden']):not([name='_honey']), select, textarea"));
+
+        function showFieldError(field) {
+            const errorElement = field.id ? document.getElementById(field.id + "-error") : null;
+            if (!errorElement) return "";
+            let message = "";
+            if (field.validity.valueMissing) message = "Please complete this field.";
+            else if (field.validity.typeMismatch) message = "Please enter a valid email address.";
+            else if (field.validity.tooShort) message = "Please enter at least " + field.minLength + " characters.";
+            else if (field.validity.tooLong) message = "Please keep this to " + field.maxLength + " characters or fewer.";
+            else if (field.validity.patternMismatch) message = "Please enter a valid value in the requested format.";
+            if (field.type === "tel" && field.value && field.value.replace(/[^0-9]/g, "").length < 7) {
+                message = "Please enter a telephone number containing at least 7 digits.";
+            }
+            errorElement.textContent = message;
+            field.setAttribute("aria-invalid", message ? "true" : "false");
+            return message;
+        }
+
+        fields.forEach(function (field) {
+            field.addEventListener("input", function () { showFieldError(field); });
+            field.addEventListener("change", function () { showFieldError(field); });
+        });
+
+        form.addEventListener("submit", async function (event) {
+            event.preventDefault();
+            if (status) status.textContent = "";
+            let firstInvalid = null;
+            fields.forEach(function (field) {
+                if (showFieldError(field) && !firstInvalid) firstInvalid = field;
+            });
+            if (!form.checkValidity() || firstInvalid) {
+                if (status) status.textContent = "Please correct the highlighted fields before submitting.";
+                if (firstInvalid) firstInvalid.focus();
+                else form.reportValidity();
+                return;
+            }
+
+            const submitButton = form.querySelector("button[type='submit']");
+            const originalLabel = submitButton ? submitButton.textContent : "";
+            if (submitButton) {
+                submitButton.disabled = true;
+                submitButton.textContent = "Sending...";
+            }
+            if (status) status.textContent = "Sending your message securely...";
+
+            try {
+                const response = await fetch(form.action, {
+                    method: "POST",
+                    body: new FormData(form),
+                    headers: { "Accept": "application/json" }
+                });
+                const result = await response.json();
+                if (!response.ok || result.success === false || result.success === "false") {
+                    throw new Error(result.message || "The form service could not accept your submission.");
+                }
+                form.reset();
+                fields.forEach(function (field) {
+                    field.removeAttribute("aria-invalid");
+                    const errorElement = field.id ? document.getElementById(field.id + "-error") : null;
+                    if (errorElement) errorElement.textContent = "";
+                });
+                if (status) status.textContent = "Thank you. Your " +
+                    (form.dataset.formName === "enquiry" ? "enquiry" : "message") +
+                    " has been submitted successfully. The GreenPath team will follow up using your contact details.";
+            } catch (error) {
+                if (status) status.textContent = "We could not send your message right now. Please try again later or contact the Johannesburg office using the details on this page.";
+            } finally {
+                if (submitButton) {
+                    submitButton.disabled = false;
+                    submitButton.textContent = originalLabel;
+                }
+            }
+        });
+    });
+
     // Map: display Gauteng as the broad service region stated on the home page.
     // This is a regional reference marker, not a verified office or project address.
     const mapElement = document.getElementById("greenpath-map");
