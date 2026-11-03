@@ -10,7 +10,7 @@ A responsive, five-page informational website for the GreenPath Community Founda
 - **Get Involved** — `pages/enquiry.html`: volunteer, sponsor and programme enquiry form.
 - **Contact Us** — `pages/contact.html`: contact information, location maps and general contact form.
 
-Shared front-end files are in `assets/css/styles.css` and `assets/js/script.js`.
+Shared front-end files are in `assets/css/styles.css` and `assets/js/script.js`. The shared JavaScript is loaded by all five pages, and page scripts use deferred loading where applicable so interactive features initialise after the HTML has been parsed.
 
 ## Features
 
@@ -70,6 +70,10 @@ The map uses Leaflet 1.9.4 with OpenStreetMap map tiles. The Contact page also e
 ## Responsive navigation
 
 The shared header now uses an accessible mobile menu on narrow screens. The menu button is enabled when the shared JavaScript loads; without JavaScript, the navigation links remain visible. On mobile, visitors can open and close the vertical navigation panel, use the Escape key to close it and return focus to the button, tap a link to close the panel, or resize to desktop to restore the full horizontal navigation. The menu supports keyboard focus, touch-sized controls and reduced-motion preferences. Check the menu on all five pages at narrow phone, tablet and desktop widths; see `TESTING.md` for the manual test case.
+
+## Source-code checks and known test limits
+
+The source review checks that local page, stylesheet, script and image references point to files in the repository, page IDs are unique, and the shared CSS/JavaScript have balanced structural delimiters. These checks do not replace browser execution, accessibility testing, external-service checks or real-device testing. See `TESTING.md` and record actual outcomes before treating a feature as verified.
 
 ## Testing and assessment evidence
 
