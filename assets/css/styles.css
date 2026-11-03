@@ -1694,6 +1694,7 @@ footer nav ul {
 
 
 /* Accessible responsive primary navigation menu. */
+/* Base button style: hidden by default until the JavaScript menu is ready. */
 .menu-toggle {
     display: none;
     align-items: center;
@@ -1713,20 +1714,24 @@ footer nav ul {
     touch-action: manipulation;
 }
 
+/* Respect the HTML hidden attribute even if another display rule is present. */
 .menu-toggle[hidden] {
     display: none;
 }
 
+/* Give mouse and pointer users feedback when hovering over the menu button. */
 .menu-toggle:hover {
     background: #eaf4ed;
 }
 
+/* Make keyboard focus easy to see on the menu button and navigation links. */
 .menu-toggle:focus-visible,
 header nav a:focus-visible {
     outline: 3px solid #f4d35e;
     outline-offset: 3px;
 }
 
+/* Arrange the three decorative lines vertically to form a hamburger icon. */
 .menu-toggle-icon {
     display: inline-flex;
     width: 1.25rem;
@@ -1734,6 +1739,7 @@ header nav a:focus-visible {
     gap: 4px;
 }
 
+/* Draw one line of the hamburger icon and animate it when the menu opens. */
 .menu-toggle-icon span {
     display: block;
     width: 100%;
@@ -1743,18 +1749,22 @@ header nav a:focus-visible {
     transition: transform 180ms ease, opacity 180ms ease;
 }
 
+/* Rotate the top line to form the upper half of the close (X) icon. */
 header.menu-open .menu-toggle-icon span:first-child {
     transform: translateY(6px) rotate(45deg);
 }
 
+/* Hide the middle line while the close icon is displayed. */
 header.menu-open .menu-toggle-icon span:nth-child(2) {
     opacity: 0;
 }
 
+/* Rotate the bottom line to complete the close (X) icon. */
 header.menu-open .menu-toggle-icon span:last-child {
     transform: translateY(-6px) rotate(-45deg);
 }
 
+/* On phones and small tablets, place the logo and menu button on one row. */
 @media (max-width: 42rem) {
     header {
         display: grid;
@@ -1766,6 +1776,7 @@ header.menu-open .menu-toggle-icon span:last-child {
         text-align: left;
     }
 
+    /* Allow the organisation name to shrink and wrap without pushing off-screen. */
     header .logo {
         min-width: 0;
         text-align: left;
@@ -1779,11 +1790,13 @@ header.menu-open .menu-toggle-icon span:last-child {
         overflow-wrap: anywhere;
     }
 
+    /* Show the menu button only at the mobile breakpoint. */
     header .menu-toggle {
         display: inline-flex;
         justify-self: end;
     }
 
+    /* When open, let the navigation panel span the full width beneath the header row. */
     header.menu-enhanced nav[aria-label="Main navigation"] {
         grid-column: 1 / -1;
         width: 100%;
@@ -1794,10 +1807,12 @@ header.menu-open .menu-toggle-icon span:last-child {
         background: #194d30;
     }
 
+    /* Hide the panel while closed; the links remain available if JavaScript is disabled. */
     header.menu-enhanced:not(.menu-open) nav[aria-label="Main navigation"] {
         display: none;
     }
 
+    /* Stack navigation items vertically and remove inherited list spacing. */
     header nav ul {
         display: flex;
         width: 100%;
@@ -1808,11 +1823,13 @@ header.menu-open .menu-toggle-icon span:last-child {
         padding: 0;
     }
 
+    /* Make each list item fill the available panel width. */
     header nav li {
         width: 100%;
         min-width: 0;
     }
 
+    /* Make each link a large, easy-to-tap row with readable text. */
     header nav a {
         display: flex;
         align-items: center;
@@ -1826,12 +1843,14 @@ header.menu-open .menu-toggle-icon span:last-child {
         overflow-wrap: anywhere;
     }
 
+    /* Highlight links on hover or keyboard focus without relying on colour alone. */
     header nav a:hover,
     header nav a:focus-visible {
         background: rgba(255, 255, 255, 0.12);
         text-decoration: none;
     }
 
+    /* Visually distinguish the link for the page currently being viewed. */
     header nav a[aria-current="page"] {
         background: rgba(255, 255, 255, 0.18);
         text-decoration: underline;
@@ -1839,6 +1858,7 @@ header.menu-open .menu-toggle-icon span:last-child {
     }
 }
 
+/* Remove icon animation for visitors who request reduced motion in device settings. */
 @media (prefers-reduced-motion: reduce) {
     .menu-toggle-icon span {
         transition: none;
