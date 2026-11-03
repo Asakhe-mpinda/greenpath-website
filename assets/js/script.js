@@ -29,6 +29,50 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    // DOM manipulation: reveal additional impact information on demand.
+    const impactToggle = document.querySelector(".impact-toggle");
+    const impactExtraContent = document.getElementById("impact-extra-content");
+
+    if (impactToggle && impactExtraContent) {
+        impactToggle.addEventListener("click", function () {
+            const isExpanded = impactToggle.getAttribute("aria-expanded") === "true";
+            impactExtraContent.hidden = isExpanded;
+            impactToggle.setAttribute("aria-expanded", String(!isExpanded));
+            impactToggle.textContent = isExpanded
+                ? "Show more about our impact"
+                : "Show less about our impact";
+        });
+    }
+
+    // DOM manipulation: reveal page sections when they enter the visitor's screen.
+    const revealElements = document.querySelectorAll(
+        "main > section, .faq-item"
+    );
+
+    revealElements.forEach(function (element) {
+        element.classList.add("js-reveal");
+    });
+
+    if ("IntersectionObserver" in window) {
+        const revealObserver = new IntersectionObserver(function (entries, observer) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+
+        revealElements.forEach(function (element) {
+            revealObserver.observe(element);
+        });
+    } else {
+        // Keep all content visible in browsers without IntersectionObserver support.
+        revealElements.forEach(function (element) {
+            element.classList.add("is-visible");
+        });
+    }
+
     // Map: display Gauteng as the broad service region stated on the home page.
     // This is a regional reference marker, not a verified office or project address.
     const mapElement = document.getElementById("greenpath-map");
