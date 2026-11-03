@@ -74,3 +74,12 @@ Only capture a success-state form screenshot after a real submission has been ac
 ## Important limitations
 
 A source-code review cannot prove that the deployed website works in a real browser. The live site, responsive breakpoints, external map services and form email delivery require manual testing. Web3Forms account configuration and access-key settings may be required before a valid submission can be delivered.
+
+
+## Mobile navigation test case
+
+| ID | Test | Procedure | Expected result | Status |
+|---|---|---|---|---|
+| T19 | Mobile menu — all pages | On each of the five pages, use a 320px, 375px, 430px and 672px viewport. Activate the Menu button, then activate each navigation link. | Menu opens as a full-width vertical panel; all five links remain readable and tappable; selecting a link navigates to the correct page and closes the panel. No horizontal overflow or clipped controls. | Pending — record browser/version and screenshots. |
+| T20 | Mobile menu — keyboard and pointer | With the menu open, press Escape; reopen it and click outside; then reopen and tab through its links. | Escape closes the panel and returns focus to the Menu button; outside click closes it; keyboard focus remains visible and links can be activated. | Pending — record browser/version and result. |
+| T21 | Mobile menu — resize and no-JavaScript fallback | Open the menu below 672px, resize above 672px, then test with JavaScript disabled. | Resizing to desktop closes the panel and restores horizontal navigation. Without JavaScript, the menu button stays hidden and all navigation links remain available. | Pending — record browser/version and result. |
