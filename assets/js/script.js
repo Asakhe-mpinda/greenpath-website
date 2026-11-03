@@ -1,6 +1,58 @@
 /* GreenPath Community Foundation interactive features. */
 
 document.addEventListener("DOMContentLoaded", function () {
+    // Accessible primary navigation: toggle, dismiss and restore focus on mobile.
+    const siteHeader = document.querySelector("header");
+    const menuToggle = siteHeader ? siteHeader.querySelector(".menu-toggle") : null;
+    const primaryNavigation = siteHeader
+        ? siteHeader.querySelector("#primary-navigation")
+        : null;
+
+    if (siteHeader && menuToggle && primaryNavigation) {
+        menuToggle.hidden = false;
+        siteHeader.classList.add("menu-enhanced");
+
+        function closeMobileMenu(restoreFocus) {
+            siteHeader.classList.remove("menu-open");
+            menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.querySelector(".menu-toggle-label").textContent = "Menu";
+            if (restoreFocus) menuToggle.focus();
+        }
+
+        menuToggle.addEventListener("click", function () {
+            const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+            siteHeader.classList.toggle("menu-open", !isOpen);
+            menuToggle.setAttribute("aria-expanded", String(!isOpen));
+            menuToggle.querySelector(".menu-toggle-label").textContent = isOpen ? "Menu" : "Close";
+        });
+
+        primaryNavigation.addEventListener("click", function (event) {
+            if (event.target.closest("a")) closeMobileMenu(false);
+        });
+
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape" && siteHeader.classList.contains("menu-open")) {
+                closeMobileMenu(true);
+            }
+        });
+
+        document.addEventListener("click", function (event) {
+            if (siteHeader.classList.contains("menu-open") && !siteHeader.contains(event.target)) {
+                closeMobileMenu(false);
+            }
+        });
+
+        const desktopViewport = window.matchMedia("(min-width: 42.001rem)");
+        function handleNavigationViewportChange(event) {
+            if (event.matches) closeMobileMenu(false);
+        }
+        if (desktopViewport.addEventListener) {
+            desktopViewport.addEventListener("change", handleNavigationViewportChange);
+        } else {
+            desktopViewport.addListener(handleNavigationViewportChange);
+        }
+    }
+
     // Accordion: open the selected answer and close the others.
     const accordionButtons = document.querySelectorAll(".accordion-trigger");
 
