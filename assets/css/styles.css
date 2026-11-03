@@ -929,10 +929,15 @@ footer nav ul {
         max-height: 280px;
     }
 
-    .cta-button,
-    button {
+    .cta-button {
         width: 100%;
         text-align: center;
+    }
+
+    .impact-toggle,
+    .accordion-trigger {
+        width: 100%;
+        text-align: left;
     }
 
     .enquiry-form,
