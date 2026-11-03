@@ -27,6 +27,7 @@
 
 <!-- Body contains all visible content displayed to website visitors. -->
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
 
     <!-- Header contains the organisation logo and main navigation menu. -->
     <header>
@@ -37,7 +38,7 @@
         </div>
 
         <!-- Main navigation allows visitors to move between website pages. -->
-        <nav>
+        <nav aria-label="Main navigation">
             <!-- Unordered list groups related items without numerical ordering. -->
             <ul>
                 <!-- Links visitors to the website home page. -->
@@ -47,7 +48,7 @@
                 <li><a href="about.html">About Us</a></li>
 
                 <!-- Links visitors to the current Programmes page. -->
-                <li><a href="services.html">Programmes</a></li>
+                <li><a href="services.html" aria-current="page">Programmes</a></li>
 
                 <!-- Links visitors to the page for getting involved. -->
                 <li><a href="enquiry.html">Get Involved</a></li>
@@ -63,7 +64,7 @@
 
 
     <!-- Main element contains the primary content of the Programmes page. -->
-    <main>
+    <main id="main-content">
 
         <!-- Page heading introduces visitors to the organisation's programmes. -->
         <section class="page-heading">
