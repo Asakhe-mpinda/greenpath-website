@@ -27,6 +27,7 @@
 
 <!-- Body contains all visible content displayed to website visitors. -->
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
 
     <!-- The header contains the organisation name and the main website navigation. -->
     <header>
@@ -37,14 +38,14 @@
         </div>
 
         <!-- The navigation area provides links to the main pages of the website. -->
-        <nav>
+        <nav aria-label="Main navigation">
             <!-- Unordered list groups related items without numerical ordering. -->
             <ul>
                 <!-- Links to the home page of the GreenPath website. -->
                 <li><a href="../index.html">Home</a></li>
 
                 <!-- Links to the current About Us page. -->
-                <li><a href="about.html">About Us</a></li>
+                <li><a href="about.html" aria-current="page">About Us</a></li>
 
                 <!-- Links to the page containing the organisation's programmes. -->
                 <li><a href="services.html">Programmes</a></li>
@@ -63,7 +64,7 @@
 
 
     <!-- The main element contains the primary content of the About Us webpage. -->
-    <main>
+    <main id="main-content">
 
         <!-- The page heading introduces visitors to the purpose of this webpage. -->
         <section class="page-heading">
