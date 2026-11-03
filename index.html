@@ -18,6 +18,8 @@
 
     <!-- Links the HTML page to the external CSS stylesheet. -->
     <link rel="stylesheet" href="assets/css/styles.css">
+    <!-- Leaflet CSS provides the styling required by the interactive map. -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 <!-- Ends the head section. -->
 </head>
 
@@ -168,6 +170,40 @@
             </ul>
         </section>
 
+
+        <!-- Interactive map: shows the broad Gauteng service region, not an unverified office address. -->
+        <section class="service-map-section" aria-labelledby="service-map-heading">
+            <h2 id="service-map-heading">Explore Our GreenPath Service Region</h2>
+            <p>GreenPath works with communities across Gauteng. The marker identifies the province as a general service area, not a confirmed office or project address. Contact us for current project and collection-point details.</p>
+            <div id="greenpath-map" role="region" aria-label="Interactive map showing the Gauteng service region" tabindex="0"></div>
+            <p class="map-note">Use the map controls to zoom and move around the region. Map data © OpenStreetMap contributors.</p>
+        </section>
+
+        <!-- FAQ accordion: visitors can expand questions to learn more about GreenPath. -->
+        <section class="faq-section" aria-labelledby="faq-heading">
+            <h2 id="faq-heading">Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <article class="faq-item">
+                    <h3><button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="faq-answer-1">How can I volunteer with GreenPath?</button></h3>
+                    <div class="accordion-panel" id="faq-answer-1" hidden>
+                        <p>Visit the Get Involved page and complete the enquiry form. Tell us which environmental activities interest you, such as tree planting, recycling education or community clean-ups.</p>
+                    </div>
+                </article>
+                <article class="faq-item">
+                    <h3><button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="faq-answer-2">What environmental programmes does GreenPath support?</button></h3>
+                    <div class="accordion-panel" id="faq-answer-2" hidden>
+                        <p>Our programme areas include tree planting, recycling education and community clean-up campaigns with local communities and partners.</p>
+                    </div>
+                </article>
+                <article class="faq-item">
+                    <h3><button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="faq-answer-3">Where can I find a project or recycling collection point?</button></h3>
+                    <div class="accordion-panel" id="faq-answer-3" hidden>
+                        <p>Project and collection-point locations can change. Please contact GreenPath directly for the latest confirmed location before travelling.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
     <!-- Ends the main content area. -->
     </main>
 
@@ -203,6 +239,11 @@
     <!-- Ends the website footer. -->
     </footer>
 
+
+<!-- Leaflet JavaScript library powers the interactive map. -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<!-- Loads GreenPath interactive features after the map library. -->
+<script src="assets/js/script.js"></script>
 
 <!-- Ends the visible body content. -->
 </body>
