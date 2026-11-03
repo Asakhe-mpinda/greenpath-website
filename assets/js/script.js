@@ -62,16 +62,21 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         // Detect when the viewport crosses into desktop layout above the mobile breakpoint.
-        const desktopViewport = window.matchMedia("(min-width: 42.001rem)");
-        // Ensure the mobile panel is not left open when the desktop layout returns.
-        function handleNavigationViewportChange(event) {
-            if (event.matches) closeMobileMenu(false);
-        }
-        // Use the modern media-query listener, with a fallback for older browsers.
-        if (desktopViewport.addEventListener) {
-            desktopViewport.addEventListener("change", handleNavigationViewportChange);
-        } else {
-            desktopViewport.addListener(handleNavigationViewportChange);
+        // Guard matchMedia so older or embedded browsers can still use the other page features.
+        if (typeof window.matchMedia === "function") {
+            const desktopViewport = window.matchMedia("(min-width: 42.001rem)");
+
+            // Ensure the mobile panel is not left open when the desktop layout returns.
+            function handleNavigationViewportChange(event) {
+                if (event.matches) closeMobileMenu(false);
+            }
+
+            // Use the modern media-query listener, with a fallback for older browsers.
+            if (typeof desktopViewport.addEventListener === "function") {
+                desktopViewport.addEventListener("change", handleNavigationViewportChange);
+            } else if (typeof desktopViewport.addListener === "function") {
+                desktopViewport.addListener(handleNavigationViewportChange);
+            }
         }
     }
 
