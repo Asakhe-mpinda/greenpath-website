@@ -98,3 +98,10 @@ All notable project corrections and feature additions are recorded here. Entries
 - Added high-visibility focus styling, 48px touch targets, active-page highlighting, responsive logo sizing and reduced-motion support.
 - Desktop navigation remains horizontal; the mobile menu is activated at 42rem (672px) and below.
 - Manual browser/device verification remains pending and is recorded in `TESTING.md`.
+
+## Web3Forms submission hardening
+
+- Rechecked both enquiry and contact forms against the shared Web3Forms handler.
+- Kept the hidden access key as the single source for the request; the JavaScript does not append a duplicate key.
+- Added form configuration checks, duplicate-submit protection, support for button and input submit controls, and clearer validation and request feedback.
+- Kept the 15-second timeout and explicit HTTP/JSON success validation. Live email delivery still requires a real test submission and receiving-mailbox verification.
