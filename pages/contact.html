@@ -139,10 +139,11 @@
         <section class="contact-form">
             <h2>Send Us a General Message</h2>
             <p>Use this form for general questions, feedback or requests that are not a volunteer or sponsorship registration.</p>
-            <form class="js-ajax-form" action="https://formsubmit.co/ajax/jhb@greenpathfoundation.org.za" method="post" data-form-name="contact" novalidate>
-                <input type="hidden" name="_subject" value="New GreenPath General Contact Message">
-                <input type="hidden" name="_template" value="table">
-                <input type="text" name="_honey" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <form class="js-ajax-form" action="https://api.web3forms.com/submit" method="post" data-form-name="contact" novalidate>
+                <input type="hidden" name="access_key" value="b419e284-8c33-428f-8b1b-5f226d029620">
+                <input type="hidden" name="subject" value="New GreenPath General Contact Message">
+                <input type="hidden" name="from_name" value="GreenPath Community Foundation">
+                <input type="checkbox" name="botcheck" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
                 <label for="contact-name">Full Name</label>
                 <input type="text" id="contact-name" name="Full name" autocomplete="name" required minlength="2" maxlength="80" pattern="[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ .'-]{1,79}" aria-describedby="contact-name-error">
                 <small class="field-error" id="contact-name-error"></small>
