@@ -39,7 +39,9 @@ Complete this section when testing:
 
 ## Responsive browser coverage
 
-Use browser responsive-design tools for viewport simulation, then confirm representative real devices when available. Record the browser and version for every run. Suggested browser coverage: current Chrome, Edge, Firefox, Safari and Samsung Internet where available. Test both portrait and landscape on touch devices, keyboard-only navigation on desktop, and 200% zoom. Viewport simulation does not replace real-device or cross-browser testing.\n\n## Evidence to capture
+Use browser responsive-design tools for viewport simulation, then confirm representative real devices when available. Record the browser and version for every run. Suggested browser coverage: current Chrome, Edge, Firefox, Safari and Samsung Internet where available. Test both portrait and landscape on touch devices, keyboard-only navigation on desktop, and 200% zoom. Viewport simulation does not replace real-device or cross-browser testing.
+
+## Evidence to capture
 
 Create an evidence folder outside the source pages or in your assessment submission, and save clearly named screenshots such as:
 
