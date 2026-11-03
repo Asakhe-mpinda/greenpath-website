@@ -62,6 +62,16 @@ All notable project corrections and feature additions are recorded here. Entries
 - Contact addresses, telephone numbers, email addresses and About-page team details were deliberately left unchanged pending owner verification.
 - Browser/device checks, successful email delivery and deployed-site verification remain pending; source changes alone do not establish that these tests passed.
 
+## Responsive and cross-device optimisation
+
+- Added a responsive refinement layer to the shared stylesheet for all five pages, using fluid gutters and section spacing, balanced responsive headings, flexible content widths and wrapping navigation.
+- Updated highlights, team, location and volunteer opportunity grids to use content-aware columns and stack cleanly on narrow screens.
+- Improved image aspect ratios and sizing, form control widths and touch target heights, map and embedded-map sizing, and scrollable viewport-constrained gallery dialogs.
+- Added safe-area-aware header/footer spacing for devices with display cutouts and dynamic viewport-height support for the lightbox.
+- Added tablet, mobile and narrow-phone layout refinements at 64rem, 42rem and 24rem, plus hover-capability handling for touch devices. Existing responsive rules remain in place; the refinement layer is appended to provide consistent final overrides without a risky wholesale stylesheet rewrite.
+- Expanded the manual test plan to cover the requested 320–3840 CSS-pixel viewport sweep, intermediate widths, orientation changes and browser/device evidence.
+- Source inspection and static checks are not equivalent to actual browser/device testing. The viewport sweep, real-device checks and cross-browser compatibility checks remain pending until performed and recorded.
+
 ## Deployment and verification notes
 
 - The repository includes a GitHub Actions deployment workflow for a root-based GitHub Pages site because `index.html` is in the repository root. In GitHub Settings → Pages, select **GitHub Actions** as the source before deployment can run.
