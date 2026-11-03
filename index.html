@@ -31,6 +31,7 @@
 
 <!-- Body contains all visible content displayed to website visitors. -->
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
 
     <!-- Site header with logo and main navigation -->
     <header>
@@ -41,11 +42,11 @@
         </div>
 
         <!-- Main navigation menu, repeated identically on every page -->
-        <nav>
+        <nav aria-label="Main navigation">
             <!-- Unordered list groups related items without numerical ordering. -->
             <ul>
                 <!-- Navigation link to the home page. -->
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html" aria-current="page">Home</a></li>
 
                 <!-- Navigation link to the About Us page. -->
                 <li><a href="./pages/about.html">About Us</a></li>
@@ -67,7 +68,7 @@
 
 
     <!-- Main element contains the primary content of the home page. -->
-    <main>
+    <main id="main-content">
 
         <!-- Hero section: main introduction and call to action -->
         <section class="hero">
