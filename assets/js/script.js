@@ -259,50 +259,96 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Validate and submit all enquiry/contact forms through Web3Forms.
+    // Submit the enquiry and contact forms through Web3Forms.
+    // The access key is already a hidden form field, so FormData includes it once.
     document.querySelectorAll(".js-ajax-form").forEach(function (form) {
+        // Prevent accidental duplicate event handlers if this script is ever re-initialised.
+        if (form.dataset.web3formsReady === "true") return;
+        form.dataset.web3formsReady = "true";
+
         const status = form.querySelector(".form-status");
-        const fields = Array.from(form.querySelectorAll("input:not([type='hidden']):not([name='botcheck']), select, textarea"));
-        const submitButton = form.querySelector("button[type='submit']");
+        const submitButton = form.querySelector('button[type="submit"], input[type="submit"]');
+        const accessKey = form.querySelector('input[name="access_key"]');
+        const fields = Array.from(form.querySelectorAll(
+            'input:not([type="hidden"]):not([name="botcheck"]), select, textarea'
+        ));
+        let isSubmitting = false;
+
+        // Fail clearly when the endpoint or hidden access-key field is missing.
+        if (form.action !== "https://api.web3forms.com/submit" || !accessKey || !accessKey.value.trim()) {
+            if (status) {
+                status.textContent = "This form is not configured correctly. Please contact the website administrator.";
+            }
+            if (submitButton) submitButton.disabled = true;
+            return;
+        }
 
         function showFieldError(field) {
-            const errorElement = field.id ? document.getElementById(field.id + "-error") : null;
+            const errorElement = field.id
+                ? document.getElementById(field.id + "-error")
+                : null;
             if (!errorElement) return "";
+
             let message = "";
-            if (field.validity.valueMissing) message = "Please complete this field.";
-            else if (field.validity.typeMismatch) message = "Please enter a valid email address.";
-            else if (field.validity.tooShort) message = "Please enter at least " + field.minLength + " characters.";
-            else if (field.validity.tooLong) message = "Please keep this to " + field.maxLength + " characters or fewer.";
-            else if (field.validity.patternMismatch) message = "Please enter a valid value in the requested format.";
-            if (field.type === "tel" && field.value && field.value.replace(/[^0-9]/g, "").length < 7) {
+            if (field.validity.valueMissing) {
+                message = "Please complete this field.";
+            } else if (field.validity.typeMismatch) {
+                message = "Please enter a valid email address.";
+            } else if (field.validity.tooShort) {
+                message = "Please enter at least " + field.minLength + " characters.";
+            } else if (field.validity.tooLong) {
+                message = "Please keep this to " + field.maxLength + " characters or fewer.";
+            } else if (field.validity.patternMismatch) {
+                message = "Please enter a valid value in the requested format.";
+            }
+
+            // HTML telephone validation does not enforce a minimum digit count by itself.
+            if (field.type === "tel" && field.value &&
+                field.value.replace(/[^0-9]/g, "").length < 7) {
                 message = "Please enter a telephone number containing at least 7 digits.";
             }
+
             errorElement.textContent = message;
             field.setAttribute("aria-invalid", message ? "true" : "false");
             return message;
         }
 
+        // Clear or update field-level feedback as visitors complete the form.
         fields.forEach(function (field) {
-            field.addEventListener("input", function () { showFieldError(field); });
-            field.addEventListener("change", function () { showFieldError(field); });
+            field.addEventListener("input", function () {
+                showFieldError(field);
+            });
+            field.addEventListener("change", function () {
+                showFieldError(field);
+            });
         });
 
         form.addEventListener("submit", async function (event) {
             event.preventDefault();
+
+            // Ignore rapid repeated submissions while the current request is pending.
+            if (isSubmitting) return;
             if (status) status.textContent = "";
 
             let firstInvalid = null;
             fields.forEach(function (field) {
                 if (showFieldError(field) && !firstInvalid) firstInvalid = field;
             });
+
+            // Keep native required/type checks alongside the accessible custom messages.
             if (!form.checkValidity() || firstInvalid) {
-                if (status) status.textContent = "Please correct the highlighted fields before submitting.";
+                if (status) {
+                    status.textContent = "Please correct the highlighted fields before submitting.";
+                }
                 if (firstInvalid) firstInvalid.focus();
                 else form.reportValidity();
                 return;
             }
 
-            const originalLabel = submitButton ? submitButton.textContent : "";
+            isSubmitting = true;
+            const originalLabel = submitButton
+                ? (submitButton.tagName === "INPUT" ? submitButton.value : submitButton.textContent)
+                : "";
             const controller = new AbortController();
             const timeoutId = window.setTimeout(function () {
                 controller.abort();
@@ -310,11 +356,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (submitButton) {
                 submitButton.disabled = true;
-                submitButton.textContent = "Sending...";
+                if (submitButton.tagName === "INPUT") {
+                    submitButton.value = "Sending...";
+                } else {
+                    submitButton.textContent = "Sending...";
+                }
             }
             if (status) status.textContent = "Sending your message securely...";
 
             try {
+                // FormData carries the hidden access_key and botcheck fields automatically.
+                // Do not append a second access_key: that can create duplicate form values.
                 const response = await fetch(form.action, {
                     method: "POST",
                     body: new FormData(form),
@@ -330,6 +382,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     throw new Error("The form service returned an unreadable response. Please try again later.");
                 }
 
+                // HTTP 200 alone is not enough: require Web3Forms' explicit success flag.
                 if (!response.ok || !result || result.success !== true) {
                     throw new Error(result && result.message
                         ? result.message
@@ -339,9 +392,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 form.reset();
                 fields.forEach(function (field) {
                     field.removeAttribute("aria-invalid");
-                    const errorElement = field.id ? document.getElementById(field.id + "-error") : null;
+                    const errorElement = field.id
+                        ? document.getElementById(field.id + "-error")
+                        : null;
                     if (errorElement) errorElement.textContent = "";
                 });
+
                 if (status) {
                     status.textContent = "Thank you. Your " +
                         (form.dataset.formName === "enquiry" ? "enquiry" : "message") +
@@ -349,15 +405,22 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             } catch (error) {
                 if (status) {
-                    status.textContent = error.name === "AbortError"
+                    status.textContent = error && error.name === "AbortError"
                         ? "The request took too long. Please check your connection and try again."
-                        : (error.message || "We could not send your message. Please try again later.");
+                        : (error && error.message
+                            ? error.message
+                            : "We could not send your message. Please try again later.");
                 }
             } finally {
                 window.clearTimeout(timeoutId);
+                isSubmitting = false;
                 if (submitButton) {
                     submitButton.disabled = false;
-                    submitButton.textContent = originalLabel;
+                    if (submitButton.tagName === "INPUT") {
+                        submitButton.value = originalLabel;
+                    } else {
+                        submitButton.textContent = originalLabel;
+                    }
                 }
             }
         });
