@@ -75,63 +75,45 @@
         </section>
 
 
-        <!-- Enquiry form: allows the visitor to enquire as a volunteer or as a sponsor -->
+        <!-- Enquiry form: collects volunteer, sponsor and programme-specific enquiries. -->
         <section class="enquiry-form">
-
-            <!-- Form collects information from visitors interested in supporting GreenPath. -->
-            <form action="#" method="post">
-
-                <!-- Label identifies the field where the visitor enters their full name. -->
+            <h2>Volunteer, Sponsor or Ask About a Programme</h2>
+            <p>Complete this form and the GreenPath team will receive your enquiry by email.</p>
+            <form class="js-ajax-form" action="https://formsubmit.co/ajax/jhb@greenpathfoundation.org.za" method="post" data-form-name="enquiry" novalidate>
+                <input type="hidden" name="_subject" value="New GreenPath Get Involved Enquiry">
+                <input type="hidden" name="_template" value="table">
+                <input type="text" name="_honey" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
                 <label for="fullname">Full Name</label>
-
-                <!-- Text input collects the visitor's full name and makes it required. -->
-                <input type="text" id="fullname" name="fullname" required>
-
-
-                <!-- Label identifies the field where the visitor enters their email address. -->
-                <label for="email">Email Address</label>
-
-                <!-- Email input collects an email address and validates the input format. -->
-                <input type="email" id="email" name="email" required>
-
-
-                <!-- Label identifies the field where the visitor enters their phone number. -->
-                <label for="phone">Phone Number</label>
-
-                <!-- Telephone input allows the visitor to provide a contact number. -->
-                <input type="tel" id="phone" name="phone">
-
-
-                <!-- Lets the visitor choose whether they are enquiring as a volunteer or a sponsor -->
-                <fieldset>
-
-                    <!-- Groups the volunteer and sponsor choices under one question. -->
-                    <legend>I am enquiring as a:</legend>
-
-                    <!-- Radio button allows the visitor to select the volunteer option. -->
-                    <input type="radio" id="volunteer" name="enquiry-type" value="volunteer" checked>
-
-                    <!-- Label identifies the volunteer radio button option. -->
-                    <label for="volunteer">Volunteer</label>
-
-                    <!-- Radio button allows the visitor to select the sponsor or partner option. -->
-                    <input type="radio" id="sponsor" name="enquiry-type" value="sponsor">
-
-                    <!-- Label identifies the sponsor or partner radio button option. -->
-                    <label for="sponsor">Sponsor / Partner</label>
-                </fieldset>
-
-
-                <!-- Label identifies the area where the visitor can provide more information. -->
-                <label for="message">Tell Us More</label>
-
-                <!-- Text area allows visitors to describe their availability or sponsorship interests. -->
-                <textarea id="message" name="message" rows="6"
-                    placeholder="e.g. availability to volunteer, or the type of sponsorship you have in mind"></textarea>
-
-                <!-- Submit button sends the completed enquiry form. -->
+                <input type="text" id="fullname" name="Full name" autocomplete="name" required minlength="2" maxlength="80" pattern="[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ .'-]{1,79}" aria-describedby="fullname-error">
+                <small class="field-error" id="fullname-error"></small>
+                <label for="enquiry-email">Email Address</label>
+                <input type="email" id="enquiry-email" name="Email address" autocomplete="email" required maxlength="120" aria-describedby="enquiry-email-error">
+                <small class="field-error" id="enquiry-email-error"></small>
+                <label for="phone">Telephone Number</label>
+                <input type="tel" id="phone" name="Telephone number" autocomplete="tel" required minlength="7" maxlength="20" pattern="([+])?[0-9 ()-]{7,20}" placeholder="+27 00 000 0000" aria-describedby="phone-error">
+                <small class="field-error" id="phone-error"></small>
+                <label for="enquiry-type">Enquiry Type</label>
+                <select id="enquiry-type" name="Enquiry type" required aria-describedby="enquiry-type-error">
+                    <option value="">Select an enquiry type</option>
+                    <option value="Volunteer">Volunteer</option>
+                    <option value="Sponsor">Sponsor</option>
+                    <option value="Programme enquiry">Programme enquiry</option>
+                </select>
+                <small class="field-error" id="enquiry-type-error"></small>
+                <label for="relevant-programme">Relevant Programme</label>
+                <select id="relevant-programme" name="Relevant programme" required aria-describedby="relevant-programme-error">
+                    <option value="">Select a programme</option>
+                    <option value="Tree Planting">Tree Planting</option>
+                    <option value="Recycling Education">Recycling Education</option>
+                    <option value="Community Clean-Ups">Community Clean-Ups</option>
+                    <option value="General / Not sure">General / Not sure</option>
+                </select>
+                <small class="field-error" id="relevant-programme-error"></small>
+                <label for="enquiry-message">Message</label>
+                <textarea id="enquiry-message" name="Message" rows="6" required minlength="20" maxlength="1500" placeholder="Tell us how you would like to get involved..." aria-describedby="enquiry-message-error"></textarea>
+                <small class="field-error" id="enquiry-message-error"></small>
                 <button type="submit">Submit Enquiry</button>
-            <!-- Ends the form and its input controls. -->
+                <p class="form-status" role="status" aria-live="polite"></p>
             </form>
         </section>
 
