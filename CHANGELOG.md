@@ -79,3 +79,14 @@ All notable project corrections and feature additions are recorded here. Entries
 - FormSubmit may require activation by the receiving mailbox owner. Live email delivery has not been confirmed.
 - Map tiles, Google Maps embeds and form delivery depend on third-party services and an internet connection.
 - Browser/device testing, successful live form delivery and assessment screenshots must be completed and recorded separately; documentation alone is not proof that those tests passed.
+
+
+## Mobile navigation rebuild
+
+- Replaced the previous wrapped-link-only phone header with a dedicated mobile menu button and collapsible, full-width vertical navigation panel across all five pages.
+- Added consistent navigation IDs and accessible button state through `aria-controls` and `aria-expanded`.
+- Added keyboard dismissal with Escape and focus restoration, outside-click dismissal, automatic close after choosing a page link, and automatic close when returning to desktop width.
+- Kept the navigation links visible when JavaScript is unavailable; the menu button is revealed only when the menu behaviour is initialised.
+- Added high-visibility focus styling, 48px touch targets, active-page highlighting, responsive logo sizing and reduced-motion support.
+- Desktop navigation remains horizontal; the mobile menu is activated at 42rem (672px) and below.
+- Manual browser/device verification remains pending and is recorded in `TESTING.md`.
