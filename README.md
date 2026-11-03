@@ -14,7 +14,7 @@ Shared front-end files are in `assets/css/styles.css` and `assets/js/script.js`.
 
 ## Features
 
-- Responsive layouts and shared navigation across the five pages.
+- Responsive layouts and shared navigation across the five pages, with fluid content widths, responsive typography, flexible card grids, touch-sized controls, safe-area spacing and viewport-aware dialogs/maps.
 - Interactive environmental map using Leaflet and OpenStreetMap tiles.
 - Programme text search and category filtering.
 - Image gallery with an enlarged lightbox view.
