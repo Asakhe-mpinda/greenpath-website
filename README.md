@@ -53,9 +53,9 @@ The repository source is available at:
 To publish:
 
 1. Open the repository on GitHub and select **Settings → Pages**.
-2. Under **Build and deployment**, choose **Deploy from a branch**.
-3. Select branch `main` and folder `/(root)`, then save.
-4. Wait for the Pages deployment workflow to finish successfully.
+2. Under **Build and deployment**, set **Source** to **GitHub Actions** and save.
+3. The committed workflow at `.github/workflows/deploy-pages.yml` runs when changes are pushed to `main`, or when manually started from the Actions tab.
+4. If GitHub asks for permission, allow the workflow to deploy to Pages. Check the **Actions** tab and wait for the **Deploy GreenPath website to GitHub Pages** run to complete successfully.
 5. Open the published URL shown in **Settings → Pages**. Confirm that it loads over HTTPS.
 6. Test every page, navigation link, image, stylesheet, JavaScript interaction, map and form on the published site. Re-test after any deployment change.
 
