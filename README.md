@@ -67,6 +67,10 @@ Both forms submit asynchronously to the Web3Forms endpoint (`https://api.web3for
 
 The map uses Leaflet 1.9.4 with OpenStreetMap map tiles. The Contact page also embeds Google Maps location searches. These features require an internet connection and the relevant third-party services to be available. Tile-loading failures now produce an accessible status message; successful map rendering still needs to be checked in a browser.
 
+## Responsive navigation
+
+The shared header now uses an accessible mobile menu on narrow screens. The menu button is enabled when the shared JavaScript loads; without JavaScript, the navigation links remain visible. On mobile, visitors can open and close the vertical navigation panel, use the Escape key to close it and return focus to the button, tap a link to close the panel, or resize to desktop to restore the full horizontal navigation. The menu supports keyboard focus, touch-sized controls and reduced-motion preferences. Check the menu on all five pages at narrow phone, tablet and desktop widths; see `TESTING.md` for the manual test case.
+
 ## Testing and assessment evidence
 
 See [TESTING.md](TESTING.md) for the test matrix and a checklist of screenshots/evidence to capture. Evidence should be collected from the running local or deployed website; this repository documentation does not claim that browser, device, map or email-delivery tests have already been performed.
