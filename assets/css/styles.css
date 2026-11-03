@@ -1005,3 +1005,90 @@ footer nav ul {
         max-height: 220px;
     }
 }
+
+
+/* Interactive FAQ accordion styles. */
+.faq-section {
+    max-width: 900px;
+    margin: 0 auto;
+}
+.faq-list {
+    display: grid;
+    gap: 0.85rem;
+}
+.faq-item {
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid #dce8df;
+    border-radius: 10px;
+    box-shadow: 0 4px 14px rgba(31, 93, 58, 0.06);
+}
+.faq-item h3 {
+    margin: 0;
+}
+.accordion-trigger {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.1rem 1.25rem;
+    background: #ffffff;
+    color: #1f5d3a;
+    text-align: left;
+    border-radius: 0;
+}
+.accordion-trigger::after {
+    content: "+";
+    flex: 0 0 auto;
+    font-size: 1.5rem;
+    line-height: 1;
+}
+.accordion-trigger[aria-expanded="true"]::after {
+    content: "−";
+}
+.accordion-trigger:hover,
+.accordion-trigger:focus-visible {
+    background: #eaf3ec;
+    color: #173f29;
+}
+.accordion-panel {
+    padding: 0 1.25rem 1.2rem;
+    color: #23412f;
+}
+.accordion-panel p {
+    margin: 0;
+}
+
+/* Interactive Leaflet map layout and responsive sizing. */
+.service-map-section {
+    padding: 2.5rem;
+    background: #eaf3ec;
+    border-radius: 12px;
+}
+.service-map-section > p {
+    max-width: 850px;
+}
+#greenpath-map {
+    width: 100%;
+    height: 420px;
+    margin-top: 1.25rem;
+    border: 2px solid #d0e0d4;
+    border-radius: 10px;
+    z-index: 0;
+}
+.map-note {
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+}
+@media (max-width: 600px) {
+    .service-map-section {
+        padding: 1.25rem;
+    }
+    #greenpath-map {
+        height: 320px;
+    }
+    .accordion-trigger {
+        padding: 1rem;
+    }
+}
