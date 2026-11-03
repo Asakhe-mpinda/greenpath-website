@@ -1092,3 +1092,89 @@ footer nav ul {
         padding: 1rem;
     }
 }
+
+
+/* Smooth CSS transitions and entrance animations for key page elements. */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Elements become visible with a short fade-and-rise transition when observed. */
+.js-reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 650ms ease, transform 650ms ease;
+}
+
+.js-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Add subtle hover transitions to interactive buttons and the hero image. */
+.cta-button,
+.impact-toggle {
+    transition: background-color 250ms ease, color 250ms ease, transform 250ms ease, box-shadow 250ms ease;
+}
+
+.cta-button:hover,
+.impact-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(23, 63, 41, 0.18);
+}
+
+.hero img {
+    transition: transform 500ms ease, filter 500ms ease;
+}
+
+.hero img:hover {
+    transform: scale(1.015);
+    filter: saturate(1.08);
+}
+
+/* Style the JavaScript-controlled impact information toggle. */
+.impact-toggle {
+    margin-top: 1rem;
+    padding: 0.75rem 1.1rem;
+    border: 0;
+    border-radius: 6px;
+    background: #1f5d3a;
+    color: #ffffff;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 700;
+}
+
+.impact-toggle:hover,
+.impact-toggle:focus-visible {
+    background: #173f29;
+}
+
+.impact-extra-content {
+    margin-top: 1rem;
+    padding: 1rem 1.2rem;
+    border-left: 4px solid #2f7549;
+    border-radius: 0 8px 8px 0;
+    background: #ffffff;
+    animation: content-reveal 350ms ease both;
+}
+
+@keyframes content-reveal {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Respect visitors who request reduced motion in their device settings. */
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    .js-reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
