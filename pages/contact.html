@@ -27,6 +27,7 @@
 
 <!-- Body contains all visible content displayed to website visitors. -->
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
 
     <!-- Header contains the organisation logo and main navigation menu. -->
     <header>
@@ -37,7 +38,7 @@
         </div>
 
         <!-- Main navigation allows users to move between website pages. -->
-        <nav>
+        <nav aria-label="Main navigation">
             <!-- Unordered list groups related items without numerical ordering. -->
             <ul>
                 <!-- Link to the website home page. -->
@@ -53,7 +54,7 @@
                 <li><a href="enquiry.html">Get Involved</a></li>
 
                 <!-- Link to the current Contact Us page. -->
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact.html" aria-current="page">Contact</a></li>
             <!-- Ends the unordered list. -->
             </ul>
         <!-- Ends the navigation menu. -->
@@ -63,7 +64,7 @@
 
 
     <!-- Main section contains the primary content of the Contact Us page. -->
-    <main>
+    <main id="main-content">
 
         <!-- Page heading introduces the purpose of this webpage. -->
         <section class="page-heading">
