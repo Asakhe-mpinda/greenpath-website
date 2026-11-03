@@ -32,12 +32,12 @@ Complete this section when testing:
 | T12 | Contact form — invalid | Submit Contact with required fields empty and test an invalid email. | Submission is blocked and field-specific errors are visible. | Pending — screenshot invalid state. |
 | T13 | Contact form — valid and server response | Enter fictional test details and submit after completing required Web3Forms setup; verify the response and receiving mailbox. | The form resets and shows success only when Web3Forms explicitly confirms acceptance; unreadable or unsuccessful responses show an error. | Pending — verify the receiving mailbox separately. |
 | T14 | Keyboard accessibility | Navigate each page and the gallery using only a keyboard; open and close the lightbox, including its fallback where available. | Focus indicators are visible; gallery close control receives focus; closing returns focus to the thumbnail. | Pending. |
-| T15 | Responsive layout | Test at a narrow mobile width (for example 375 px), a tablet width and a desktop width. | Navigation, forms, images, cards and map fit the viewport; no content is clipped or requires unintended horizontal scrolling. | Pending — save mobile and desktop screenshots. |
+| T15 | Responsive layout and viewport sweep | Test every page at 320, 360, 375, 390, 430, 600, 768, 820, 1024, 1280, 1366, 1440, 1600, 1920, 2560 and 3840 CSS px; include portrait/landscape and widths immediately around breakpoints. | Navigation, forms, images, cards, gallery, footer and maps adapt without unintended horizontal scrolling, clipping or overlap. | Pending — record actual browser, device, widths, orientation and screenshots; do not mark simulated widths as physical-device tests. |
 | T16 | SEO metadata | Inspect each page source or use browser developer tools. | Each main page has a unique title, meta description and meaningful H1; image alt text is appropriate. | Pending — capture metadata evidence. |
 | T17 | Crawl file | Open `/robots.txt` on the local or deployed site. | The file is served and contains the intended crawl directive. | Pending. |
 | T18 | Deployment | Open the published URL over HTTPS and visit all five pages. | GitHub Pages deployment succeeds; all pages and relative assets load at the published address. | Pending — record deployed URL and deployment status. |
 
-## Evidence to capture
+## Responsive browser coverage\n\nUse browser responsive-design tools for viewport simulation, then confirm representative real devices when available. Record the browser and version for every run. Suggested browser coverage: current Chrome, Edge, Firefox, Safari and Samsung Internet where available. Test both portrait and landscape on touch devices, keyboard-only navigation on desktop, and 200% zoom. Viewport simulation does not replace real-device or cross-browser testing.\n\n## Evidence to capture
 
 Create an evidence folder outside the source pages or in your assessment submission, and save clearly named screenshots such as:
 
