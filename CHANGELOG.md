@@ -39,10 +39,11 @@ All notable project corrections and feature additions are recorded here. Entries
 - Added this changelog to record corrections and new functionality.
 - Updated `README.md` with the page overview, features, local run instructions, GitHub repository link, expected GitHub Pages address, deployment steps, test evidence checklist and external references.
 - Added `TESTING.md` to record manual verification steps and assessment evidence still to be collected.
+- Added `.github/workflows/deploy-pages.yml` to automate static-site deployment to GitHub Pages after pushes to `main` or a manual workflow run.
 
 ## Deployment and verification notes
 
-- The repository is prepared for a root-based GitHub Pages deployment because `index.html` is in the repository root. Pages must still be enabled in GitHub Settings → Pages.
+- The repository includes a GitHub Actions deployment workflow for a root-based GitHub Pages site because `index.html` is in the repository root. In GitHub Settings → Pages, select **GitHub Actions** as the source before deployment can run.
 - The expected project-site URL is `https://asakhe-mpinda.github.io/greenpath-website/`. It must not be treated as a verified live website until the Pages deployment succeeds and the published pages are tested.
 - FormSubmit may require activation by the receiving mailbox owner. Live email delivery has not been confirmed.
 - Map tiles, Google Maps embeds and form delivery depend on third-party services and an internet connection.
