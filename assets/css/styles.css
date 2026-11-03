@@ -1301,7 +1301,8 @@ body {
 }
 
 main {
-    width: min(100% - (var(--content-gutter) * 2), 72rem);
+    width: calc(100% - var(--content-gutter) - var(--content-gutter));
+    max-width: 72rem;
     min-width: 0;
     margin-inline: auto;
 }
@@ -1505,7 +1506,6 @@ button,
     min-height: 18rem;
     height: clamp(18rem, 42vw, 28rem);
     max-width: 100%;
-    touch-action: pan-x pan-y;
 }
 
 .faq-section,
