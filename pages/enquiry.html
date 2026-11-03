@@ -79,10 +79,11 @@
         <section class="enquiry-form">
             <h2>Volunteer, Sponsor or Ask About a Programme</h2>
             <p>Complete this form and the GreenPath team will receive your enquiry by email.</p>
-            <form class="js-ajax-form" action="https://formsubmit.co/ajax/jhb@greenpathfoundation.org.za" method="post" data-form-name="enquiry" novalidate>
-                <input type="hidden" name="_subject" value="New GreenPath Get Involved Enquiry">
-                <input type="hidden" name="_template" value="table">
-                <input type="text" name="_honey" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <form class="js-ajax-form" action="https://api.web3forms.com/submit" method="post" data-form-name="enquiry" novalidate>
+                <input type="hidden" name="access_key" value="b419e284-8c33-428f-8b1b-5f226d029620">
+                <input type="hidden" name="subject" value="New GreenPath Get Involved Enquiry">
+                <input type="hidden" name="from_name" value="GreenPath Community Foundation">
+                <input type="checkbox" name="botcheck" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
                 <label for="fullname">Full Name</label>
                 <input type="text" id="fullname" name="Full name" autocomplete="name" required minlength="2" maxlength="80" pattern="[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ .'-]{1,79}" aria-describedby="fullname-error">
                 <small class="field-error" id="fullname-error"></small>
