@@ -86,7 +86,7 @@ All notable project corrections and feature additions are recorded here. Entries
 - Loaded the shared JavaScript on the About Us page so its mobile navigation and shared interactive enhancements initialise consistently with the other pages.
 - Added deferred loading to the home and Programmes page scripts so HTML parsing completes before the shared code executes; the homepage Leaflet and site scripts retain their required loading order.
 - Guarded the mobile navigation's `matchMedia` usage so browsers without that API can still use the rest of the website interactions.
-- Corrected stale FormSubmit references in this changelog to match the current Web3Forms integration.
+- Updated the form-integration documentation to identify Web3Forms as the active provider.
 - Corrected escaped newline characters in the responsive browser coverage section of `TESTING.md`.
 
 ## Mobile navigation rebuild
