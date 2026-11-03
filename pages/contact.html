@@ -40,8 +40,15 @@
             <a href="../index.html">GreenPath Community Foundation</a>
         </div>
 
-        <!-- Main navigation allows users to move between website pages. -->
-        <nav aria-label="Main navigation">
+        
+        <!-- Mobile menu button; JavaScript reveals it when the menu is ready. -->
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" hidden>
+            <span class="menu-toggle-label">Menu</span>
+            <span class="menu-toggle-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+
+<!-- Main navigation allows users to move between website pages. -->
+        <nav id="primary-navigation" aria-label="Main navigation">
             <!-- Unordered list groups related items without numerical ordering. -->
             <ul>
                 <!-- Link to the website home page. -->
