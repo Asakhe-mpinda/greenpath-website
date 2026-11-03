@@ -20,8 +20,8 @@ Shared front-end files are in `assets/css/styles.css` and `assets/js/script.js`.
 - Image gallery with an enlarged lightbox view.
 - JavaScript-generated volunteer opportunity cards.
 - FAQ accordion, impact-content toggle and scroll-reveal effects.
-- Separate enquiry and general-contact forms with HTML5 and JavaScript validation, accessible error messages, and AJAX submission through FormSubmit.
-- Page-specific titles and meta descriptions, Open Graph metadata, descriptive image alternatives, and a `robots.txt` file.
+- Separate enquiry and general-contact forms with HTML5 and JavaScript validation, accessible error messages, and AJAX submission through Web3Forms, with request timeouts and explicit response validation.
+- Page-specific titles and meta descriptions, Open Graph title/description metadata, descriptive image alternatives, skip links, current-page navigation state, keyboard focus styling, and a `robots.txt` file.
 
 ## Run locally
 
@@ -63,9 +63,9 @@ The root `index.html` is the site entry point, so the project is structured for 
 
 ## Forms and external services
 
-Both forms currently submit to the FormSubmit AJAX endpoint for `jhb@greenpathfoundation.org.za`. FormSubmit may require the recipient to complete its initial activation email before submissions can be delivered. **Successful live email delivery has not been confirmed.** Submit a test only after the recipient has activated the service, and never use a real visitor's personal information for testing.
+Both forms submit asynchronously to the Web3Forms endpoint (`https://api.web3forms.com/submit`) using the configured access key in each form. The shared JavaScript validates the fields, shows a sending state, stops requests that exceed 15 seconds, checks the HTTP and JSON response, and displays success only when Web3Forms returns an explicit successful response. **Successful live email delivery has not been confirmed.** Complete any required Web3Forms dashboard setup and submit a fictional test enquiry before relying on delivery. Never use a real visitor's personal information for testing.
 
-The map uses Leaflet 1.9.4 with OpenStreetMap map tiles. The Contact page also embeds Google Maps location searches. These features require an internet connection and the relevant third-party services to be available.
+The map uses Leaflet 1.9.4 with OpenStreetMap map tiles. The Contact page also embeds Google Maps location searches. These features require an internet connection and the relevant third-party services to be available. Tile-loading failures now produce an accessible status message; successful map rendering still needs to be checked in a browser.
 
 ## Testing and assessment evidence
 
@@ -93,7 +93,7 @@ Recommended evidence to save in an assessment evidence folder:
 - **JavaScript** — MDN Web Docs: https://developer.mozilla.org/docs/Web/JavaScript
 - **Leaflet 1.9.4** — interactive map library, loaded from unpkg: https://leafletjs.com/reference.html and https://unpkg.com/leaflet@1.9.4/dist/leaflet.js
 - **OpenStreetMap** — map tile service and attribution: https://www.openstreetmap.org/copyright
-- **FormSubmit** — AJAX form endpoint/documentation: https://formsubmit.co/ (recipient activation may be required).
+- **Web3Forms** — AJAX form endpoint and documentation: https://web3forms.com/ and https://docs.web3forms.com/.
 - **Google Maps** — embedded map search URLs used on the Contact page: https://www.google.com/maps
 
 Third-party services may change their terms, availability or implementation. Check their current documentation before making significant changes.
