@@ -41,6 +41,27 @@ All notable project corrections and feature additions are recorded here. Entries
 - Added `TESTING.md` to record manual verification steps and assessment evidence still to be collected.
 - Added `.github/workflows/deploy-pages.yml` to automate static-site deployment to GitHub Pages after pushes to `main` or a manual workflow run.
 
+## Technical audit improvements
+
+### Web3Forms and form reliability
+- Replaced the previous FormSubmit endpoints with Web3Forms for both the Get Involved and Contact forms.
+- Added the supplied Web3Forms access key, form-specific subjects and a bot-check field while preserving existing form fields and client-side validation.
+- Added a 15-second request timeout, explicit JSON parsing and response-success checks. Timeout, malformed-response and service errors are reported without falsely displaying success.
+- Kept success messaging conditional on an explicit successful response from Web3Forms.
+
+### Accessibility and responsive behaviour
+- Added a skip-to-main-content link to all five pages.
+- Added a labelled primary navigation landmark and `aria-current="page"` to the active header navigation link on each page.
+- Added visible keyboard focus styling and improved lightbox focus handling, Escape-key support for the non-dialog fallback and focus return to the triggering gallery control.
+- Scoped the mobile full-width button rule so it no longer forces every button, including the lightbox close button, to full width.
+
+### Map handling and documentation
+- Added an accessible status message when OpenStreetMap tiles fail to load or the Leaflet library is unavailable.
+- Updated README, test procedures and references to describe Web3Forms and the new accessibility/error-handling behaviour.
+- Canonical URLs and social-sharing image URLs remain pending confirmation of the production domain and approved sharing image.
+- Contact addresses, telephone numbers, email addresses and About-page team details were deliberately left unchanged pending owner verification.
+- Browser/device checks, successful email delivery and deployed-site verification remain pending; source changes alone do not establish that these tests passed.
+
 ## Deployment and verification notes
 
 - The repository includes a GitHub Actions deployment workflow for a root-based GitHub Pages site because `index.html` is in the repository root. In GitHub Settings → Pages, select **GitHub Actions** as the source before deployment can run.
