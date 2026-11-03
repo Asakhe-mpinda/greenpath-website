@@ -32,7 +32,7 @@ All notable project corrections and feature additions are recorded here. Entries
 - Created a dedicated Get Involved form for volunteer, sponsor and programme enquiries.
 - Created a separate Contact form for general messages, feedback, partnership and media enquiries.
 - Added native HTML validation attributes and JavaScript checks for required fields, email format, length and telephone input.
-- Added field-specific error feedback, accessible invalid-state attributes, submission status messages and AJAX form submission through FormSubmit.
+- Added field-specific error feedback, accessible invalid-state attributes, submission status messages and AJAX form submission through Web3Forms.
 - Added a hidden honeypot field as a basic spam deterrent.
 
 ### Documentation and project delivery
@@ -76,10 +76,18 @@ All notable project corrections and feature additions are recorded here. Entries
 
 - The repository includes a GitHub Actions deployment workflow for a root-based GitHub Pages site because `index.html` is in the repository root. In GitHub Settings → Pages, select **GitHub Actions** as the source before deployment can run.
 - The expected project-site URL is `https://asakhe-mpinda.github.io/greenpath-website/`. It must not be treated as a verified live website until the Pages deployment succeeds and the published pages are tested.
-- FormSubmit may require activation by the receiving mailbox owner. Live email delivery has not been confirmed.
+- Web3Forms account configuration and recipient verification may be required. Live email delivery has not been confirmed.
 - Map tiles, Google Maps embeds and form delivery depend on third-party services and an internet connection.
 - Browser/device testing, successful live form delivery and assessment screenshots must be completed and recorded separately; documentation alone is not proof that those tests passed.
 
+
+## Source-code reliability repairs
+
+- Loaded the shared JavaScript on the About Us page so its mobile navigation and shared interactive enhancements initialise consistently with the other pages.
+- Added deferred loading to the home and Programmes page scripts so HTML parsing completes before the shared code executes; the homepage Leaflet and site scripts retain their required loading order.
+- Guarded the mobile navigation's `matchMedia` usage so browsers without that API can still use the rest of the website interactions.
+- Corrected stale FormSubmit references in this changelog to match the current Web3Forms integration.
+- Corrected escaped newline characters in the responsive browser coverage section of `TESTING.md`.
 
 ## Mobile navigation rebuild
 
