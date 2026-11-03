@@ -71,12 +71,26 @@
             <p>GreenPath runs three core programmes, each designed to build a more sustainable community.</p>
         </section>
 
+        <!-- Search and category filter help visitors find relevant programmes. -->
+        <section class="programme-tools" aria-labelledby="programme-tools-heading">
+            <h2 id="programme-tools-heading">Find a Programme</h2>
+            <label for="programme-search">Search programmes</label>
+            <input id="programme-search" type="search" placeholder="Search tree planting, recycling, clean-ups..." autocomplete="off">
+            <label for="programme-filter">Filter by category</label>
+            <select id="programme-filter">
+                <option value="all">All programmes</option>
+                <option value="planting">Tree planting</option>
+                <option value="recycling">Recycling education</option>
+                <option value="cleanup">Community clean-ups</option>
+            </select>
+            <p id="programme-results" class="programme-results" aria-live="polite">Showing all programmes.</p>
+        </section>
 
         <!-- Programme 1 -->
-        <section class="programme">
+        <section class="programme" data-programme-card data-category="planting">
 
             <!-- Displays an image representing the tree-planting programme. -->
-            <img src="../assets/images/tree-planting.jpg" alt="Volunteers digging holes to plant young trees">
+            <button class="gallery-image-button" type="button" data-lightbox-src="../assets/images/tree-planting.jpg" data-lightbox-alt="Volunteers digging holes to plant young trees" aria-label="Enlarge image: Volunteers digging holes to plant young trees"><img src="../assets/images/tree-planting.jpg" alt="Volunteers digging holes to plant young trees" loading="lazy"></button>
 
             <!-- Identifies the first environmental programme. -->
             <h2>Tree Planting</h2>
@@ -89,10 +103,10 @@
 
 
         <!-- Programme 2 -->
-        <section class="programme">
+        <section class="programme" data-programme-card data-category="recycling">
 
             <!-- Displays an image representing the recycling education programme. -->
-            <img src="../assets/images/recycling-education.jpg" alt="Learners sorting recyclable waste at a school workshop">
+            <button class="gallery-image-button" type="button" data-lightbox-src="../assets/images/recycling-education.jpg" data-lightbox-alt="Learners sorting recyclable waste at a school workshop" aria-label="Enlarge image: Learners sorting recyclable waste at a school workshop"><img src="../assets/images/recycling-education.jpg" alt="Learners sorting recyclable waste at a school workshop" loading="lazy"></button>
 
             <!-- Identifies the second environmental programme. -->
             <h2>Recycling Education</h2>
@@ -105,10 +119,10 @@
 
 
         <!-- Programme 3 -->
-        <section class="programme">
+        <section class="programme" data-programme-card data-category="cleanup">
 
             <!-- Displays an image representing a community clean-up activity. -->
-            <img src="../assets/images/clean-it-up.avif" alt="Volunteers collecting litter along a riverbank">
+            <button class="gallery-image-button" type="button" data-lightbox-src="../assets/images/clean-it-up.avif" data-lightbox-alt="Volunteers collecting litter along a riverbank" aria-label="Enlarge image: Volunteers collecting litter along a riverbank"><img src="../assets/images/clean-it-up.avif" alt="Volunteers collecting litter along a riverbank" loading="lazy"></button>
 
             <!-- Identifies the third environmental programme. -->
             <h2>Community Clean-Ups</h2>
@@ -118,6 +132,13 @@
                 spaces, removing litter and raising awareness of responsible waste disposal.</p>
         </section>
 
+
+        <!-- JavaScript generates volunteer opportunity cards from the existing programme themes. -->
+        <section class="opportunities-section" aria-labelledby="opportunities-heading">
+            <h2 id="opportunities-heading">Volunteer Opportunities</h2>
+            <p>Explore ways to support the environmental programmes. Contact GreenPath to confirm current activities and availability.</p>
+            <div id="opportunities-list" class="opportunities-grid" aria-live="polite"><p>Loading volunteer opportunities...</p></div>
+        </section>
 
         <!-- Explains the wider benefits of participating in GreenPath programmes. -->
         <section class="programme-benefits">
@@ -152,6 +173,13 @@
             <h2>What To Expect</h2>
             <p>Programme activities may include short environmental briefings, practical tasks, teamwork, and a discussion about how participants can continue supporting their community. Specific activities and schedules may vary depending on the project and location.</p>
         </section>
+
+        <!-- Lightbox dialog displays a selected gallery image at a larger size. -->
+        <dialog class="gallery-lightbox" id="gallery-lightbox" aria-label="Image preview">
+            <button class="lightbox-close" type="button" aria-label="Close image preview">&times;</button>
+            <img id="lightbox-image" src="" alt="">
+            <p id="lightbox-caption"></p>
+        </dialog>
 
     <!-- Ends the main content area. -->
     </main>
@@ -188,6 +216,9 @@
     <!-- Ends the website footer. -->
     </footer>
 
+
+<!-- Loads JavaScript for programme search, generated opportunities and image gallery. -->
+<script src="../assets/js/script.js"></script>
 
 <!-- Ends the visible body content. -->
 </body>
